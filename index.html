@@ -13,15 +13,16 @@
         p { font-size: 16px; color: #5b7083; line-height: 1.5; }
         .icons { display: flex; justify-content: space-around; margin: 30px 0; }
         .icon-item { font-size: 12px; font-weight: bold; color: #00bcd4; }
-        .btn { background-color: #25d366; color: white; padding: 18px 30px; border-radius: 15px; text-decoration: none; font-weight: bold; display: block; margin-top: 30px; font-size: 18px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: transform 0.2s; }
-        .btn:hover { transform: scale(1.05); }
+        /* Botón corregido para evitar errores de apertura */
+        .btn { background-color: #25d366; color: white; padding: 18px 30px; border-radius: 15px; text-decoration: none; font-weight: bold; display: block; margin-top: 30px; font-size: 18px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: transform 0.2s; cursor: pointer; border: none; }
+        .btn:hover { transform: scale(1.05); background-color: #20bd5a; }
         .footer-note { font-size: 12px; color: #aab8c2; margin-top: 20px; }
     </style>
 </head>
 <body>
     <div class="card">
         <div class="logo">
-    <img src="logoApp.png" alt="Anesi Logo">
+            <img src="logoApp.png" alt="Anesi Logo">
         </div>
         <h1>Anesi: Tu Guía de Élite</h1>
         <p>Sincroniza tu cerebro, corazón e intestino para una vida con propósito y paz.</p>
@@ -38,7 +39,7 @@
             <li>Logra claridad mental total</li>
         </ul>
 
-        <a href="https://wa.me/14155238886?text=Hola%20Anesi,%20quiero%20iniciar%20mi%20prueba%20gratis" class="btn">
+        <a href="https://wa.me/14155238886?text=Hola%20Anesi%2C%20quiero%20iniciar%20mi%20prueba%20gratis" class="btn">
             ¡Iniciar 3 días gratis!
         </a>
         
