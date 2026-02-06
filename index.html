@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anesi - Tu Mentor de Élite</title>
+    <title>Anesi - Guardián de la Coherencia Humana</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #1a2b3c; }
         .card { background: white; width: 90%; max-width: 400px; padding: 40px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); text-align: center; }
         .logo { width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 20px; overflow: hidden; }
         .logo img { width: 100%; height: 100%; object-fit: cover; }
-        h1 { font-size: 24px; margin-bottom: 10px; color: #0d253f; }
+        h1 { font-size: 24px; margin-bottom: 10px; color: #0d253f; line-height: 1.2; }
         p { font-size: 16px; color: #5b7083; line-height: 1.5; }
-        .icons { display: flex; justify-content: space-around; margin: 30px 0; }
-        .icon-item { font-size: 12px; font-weight: bold; color: #00bcd4; }
-        .btn { background-color: #25d366; color: white; padding: 18px 30px; border-radius: 15px; text-decoration: none; font-weight: bold; display: block; margin-top: 30px; font-size: 18px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: transform 0.2s; cursor: pointer; border: none; }
+        .highlight-box { background-color: #f0f4f8; padding: 15px; border-radius: 15px; margin: 20px 0; font-size: 14px; font-style: italic; border-left: 4px solid #00bcd4; text-align: left; }
+        .icons { display: flex; justify-content: space-around; margin: 25px 0; }
+        .icon-item { font-size: 11px; font-weight: bold; color: #00bcd4; }
+        .btn { background-color: #25d366; color: white; padding: 20px 30px; border-radius: 15px; text-decoration: none; font-weight: bold; display: block; margin-top: 25px; font-size: 18px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: transform 0.2s; cursor: pointer; border: none; }
         .btn:hover { transform: scale(1.05); background-color: #20bd5a; }
         .footer-note { font-size: 12px; color: #aab8c2; margin-top: 20px; }
     </style>
@@ -23,9 +24,13 @@
         <div class="logo">
             <img src="logoApp.png" alt="Anesi Logo">
         </div>
-        <h1 id="title">Anesi: Tu Guía de Élite</h1>
-        <p id="description">Sincroniza tu cerebro, corazón e intestino para una vida con propósito y paz.</p>
+        <h1 id="title">Anesi: Tu Espacio de Salvación</h1>
+        <p id="description">No solo te escuchamos. Sincronizamos tu biología y tu alma para sacarte del ruido y devolverte la paz.</p>
         
+        <div class="highlight-box" id="impact-text">
+            "El 90% de las enfermedades modernas nacen de una desalineación emocional. Es hora de recuperar tu coherencia biológica."
+        </div>
+
         <div class="icons">
             <div class="icon-item">🧠<br><span id="icon1">MENTE</span></div>
             <div class="icon-item">❤️<br><span id="icon2">CORAZÓN</span></div>
@@ -33,18 +38,17 @@
         </div>
 
         <ul id="list" style="text-align: left; font-size: 14px; color: #5b7083; padding-left: 20px;">
-            <li id="li1">Desbloquea tu intuición</li>
-            <li id="li2">Potencia tu inteligencia emocional</li>
-            <li id="li3">Logra claridad mental total</li>
+            <li id="li1">Escucha profunda y sin juicios.</li>
+            <li id="li2">Alivio real de la ansiedad y el vacío.</li>
+            <li id="li3">Guía nutricional para tu sistema nervioso.</li>
         </ul>
 
-        <a href="#" id="wa-btn" class="btn">¡Iniciar 3 días gratis!</a>
+        <a href="#" id="wa-btn" class="btn">¡Acepto mi transformación!</a>
         
-        <p class="footer-note" id="footer">Únete a miles transformando sus vidas.<br>No se requiere tarjeta para la prueba.</p>
+        <p class="footer-note" id="footer">Acceso exclusivo para los 40 pioneros.<br>3 días de mentoría profunda.</p>
     </div>
 
     <script>
-        // 1. Detectar idioma (URL ?lang=en o idioma del navegador)
         const urlParams = new URLSearchParams(window.location.search);
         let userLang = urlParams.get('lang') || navigator.language || navigator.userLanguage;
         
@@ -52,31 +56,29 @@
         let message = "";
         let btnText = "";
 
-        // 2. Configuración para INGLÉS
         if (userLang.startsWith('en')) {
-            message = "Hi Anesi, I want to start my free trial";
-            btnText = "Start 3 free days!";
+            message = "Hi Anesi, I accept the challenge. Help me recover my coherence.";
+            btnText = "I accept my transformation!";
             
-            // Traducir textos de la página
-            document.getElementById('title').innerText = "Anesi: Your Elite Guide";
-            document.getElementById('description').innerText = "Sync your brain, heart, and gut for a life of purpose and peace.";
+            document.getElementById('title').innerText = "Anesi: Your Space of Salvation";
+            document.getElementById('description').innerText = "We don't just listen. We sync your biology and soul to bring you back to peace.";
+            document.getElementById('impact-text').innerText = "\"90% of modern diseases stem from emotional misalignment. It's time to reclaim your biological coherence.\"";
             document.getElementById('icon1').innerText = "MIND";
             document.getElementById('icon2').innerText = "HEART";
             document.getElementById('icon3').innerText = "GUT";
-            document.getElementById('li1').innerText = "Unlock your intuition";
-            document.getElementById('li2').innerText = "Boost your emotional intelligence";
-            document.getElementById('li3').innerText = "Achieve total mental clarity";
-            document.getElementById('footer').innerHTML = "Join thousands transforming their lives.<br>No credit card required for trial.";
+            document.getElementById('li1').innerText = "Deep, non-judgmental listening.";
+            document.getElementById('li2').innerText = "Real relief from anxiety and emptiness.";
+            document.getElementById('li3').innerText = "Nutritional guidance for your nervous system.";
+            document.getElementById('footer').innerHTML = "Exclusive access for the 40 pioneers.<br>3 days of deep mentorship.";
         } 
-        // 3. Configuración para ESPAÑOL (Por defecto)
         else {
-            message = "Hola Anesi, quiero iniciar mi prueba gratis";
-            btnText = "¡Iniciar 3 días gratis!";
+            message = "Hola Anesi, acepto el reto de los 3 días. Ayúdame a recuperar mi coherencia.";
+            btnText = "¡Acepto mi transformación!";
         }
 
-        // 4. Aplicar cambios al botón y el link directo de App
         btn.innerText = btnText;
-        btn.href = "whatsapp://send?phone=14155238886&text=" + encodeURIComponent(message);
+        // Cambia el número de teléfono aquí si es necesario
+        btn.href = "https://wa.me/14155238886?text=" + encodeURIComponent(message);
     </script>
 </body>
 </html>
