@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anesi - Guardián de la Coherencia Humana</title>
+    <title>Anesi - La voz que alivia el alma</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #1a2b3c; }
         .card { background: white; width: 90%; max-width: 400px; padding: 40px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); text-align: center; }
-        .logo { width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 20px; overflow: hidden; }
+        .logo { width: 80px; height: 80px; margin: 0 auto 15px; border-radius: 20px; overflow: hidden; }
         .logo img { width: 100%; height: 100%; object-fit: cover; }
-        h1 { font-size: 24px; margin-bottom: 10px; color: #0d253f; line-height: 1.2; }
-        p { font-size: 16px; color: #5b7083; line-height: 1.5; }
-        .highlight-box { background-color: #f0f4f8; padding: 15px; border-radius: 15px; margin: 20px 0; font-size: 14px; font-style: italic; border-left: 4px solid #00bcd4; text-align: left; }
-        .icons { display: flex; justify-content: space-around; margin: 25px 0; }
-        .icon-item { font-size: 11px; font-weight: bold; color: #00bcd4; }
-        .btn { background-color: #25d366; color: white; padding: 20px 30px; border-radius: 15px; text-decoration: none; font-weight: bold; display: block; margin-top: 25px; font-size: 18px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: transform 0.2s; cursor: pointer; border: none; }
-        .btn:hover { transform: scale(1.05); background-color: #20bd5a; }
-        .footer-note { font-size: 12px; color: #aab8c2; margin-top: 20px; }
+        h1 { font-size: 32px; margin-bottom: 5px; color: #0d253f; letter-spacing: 1px; }
+        .slogan { font-size: 18px; color: #00bcd4; font-weight: 600; margin-bottom: 20px; font-style: italic; }
+        p { font-size: 15px; color: #5b7083; line-height: 1.5; margin-bottom: 20px; }
+        .highlight-box { background-color: #fdf2f2; padding: 15px; border-radius: 15px; margin: 20px 0; font-size: 14px; border-left: 4px solid #ff5252; text-align: left; color: #d32f2f; }
+        .icons { display: flex; justify-content: space-around; margin: 25px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 15px 0; }
+        .icon-item { font-size: 11px; font-weight: bold; color: #0d253f; }
+        .btn { background-color: #25d366; color: white; padding: 18px 30px; border-radius: 15px; text-decoration: none; font-weight: bold; display: block; margin-top: 25px; font-size: 18px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: transform 0.2s; border: none; }
+        .btn:hover { transform: scale(1.05); }
+        .footer-note { font-size: 11px; color: #aab8c2; margin-top: 20px; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -24,11 +25,13 @@
         <div class="logo">
             <img src="logoApp.png" alt="Anesi Logo">
         </div>
-        <h1 id="title">Anesi: Tu Espacio de Salvación</h1>
-        <p id="description">No solo te escuchamos. Sincronizamos tu biología y tu alma para sacarte del ruido y devolverte la paz.</p>
+        <h1>Anesi</h1>
+        <div class="slogan" id="slogan">La voz que alivia el alma</div>
+        
+        <p id="description">Sincronizamos tu biología y tu alma para liberar el peso que vienes cargando en silencio.</p>
         
         <div class="highlight-box" id="impact-text">
-            "El 90% de las enfermedades modernas nacen de una desalineación emocional. Es hora de recuperar tu coherencia biológica."
+            <strong>Dato crítico:</strong> El 90% de las enfermedades metabólicas nacen de emociones no gestionadas. Sanar requiere ser escuchado.
         </div>
 
         <div class="icons">
@@ -37,15 +40,9 @@
             <div class="icon-item">🌀<br><span id="icon3">INTESTINO</span></div>
         </div>
 
-        <ul id="list" style="text-align: left; font-size: 14px; color: #5b7083; padding-left: 20px;">
-            <li id="li1">Escucha profunda y sin juicios.</li>
-            <li id="li2">Alivio real de la ansiedad y el vacío.</li>
-            <li id="li3">Guía nutricional para tu sistema nervioso.</li>
-        </ul>
-
-        <a href="#" id="wa-btn" class="btn">¡Acepto mi transformación!</a>
+        <a href="#" id="wa-btn" class="btn">¡Iniciar mi sanación!</a>
         
-        <p class="footer-note" id="footer">Acceso exclusivo para los 40 pioneros.<br>3 días de mentoría profunda.</p>
+        <p class="footer-note" id="footer">Acceso exclusivo: 40 pioneros seleccionados.</p>
     </div>
 
     <script>
@@ -57,27 +54,23 @@
         let btnText = "";
 
         if (userLang.startsWith('en')) {
-            message = "Hi Anesi, I accept the challenge. Help me recover my coherence.";
-            btnText = "I accept my transformation!";
+            message = "Hi Anesi, I accept the challenge. I need a voice that soothes my soul.";
+            btnText = "Start my healing!";
             
-            document.getElementById('title').innerText = "Anesi: Your Space of Salvation";
-            document.getElementById('description').innerText = "We don't just listen. We sync your biology and soul to bring you back to peace.";
-            document.getElementById('impact-text').innerText = "\"90% of modern diseases stem from emotional misalignment. It's time to reclaim your biological coherence.\"";
+            document.getElementById('slogan').innerText = "The voice that soothes the soul";
+            document.getElementById('description').innerText = "We sync your biology and your soul to release the weight you've been carrying in silence.";
+            document.getElementById('impact-text').innerHTML = "<strong>Critical Fact:</strong> 90% of metabolic diseases stem from unmanaged emotions. Healing requires being heard.";
             document.getElementById('icon1').innerText = "MIND";
             document.getElementById('icon2').innerText = "HEART";
             document.getElementById('icon3').innerText = "GUT";
-            document.getElementById('li1').innerText = "Deep, non-judgmental listening.";
-            document.getElementById('li2').innerText = "Real relief from anxiety and emptiness.";
-            document.getElementById('li3').innerText = "Nutritional guidance for your nervous system.";
-            document.getElementById('footer').innerHTML = "Exclusive access for the 40 pioneers.<br>3 days of deep mentorship.";
+            document.getElementById('footer').innerText = "Exclusive access: 40 selected pioneers.";
         } 
         else {
-            message = "Hola Anesi, acepto el reto de los 3 días. Ayúdame a recuperar mi coherencia.";
-            btnText = "¡Acepto mi transformación!";
+            message = "Hola Anesi, acepto el reto de los 3 días. Necesito una voz que alivie mi alma.";
+            btnText = "¡Iniciar mi sanación!";
         }
 
         btn.innerText = btnText;
-        // Cambia el número de teléfono aquí si es necesario
         btn.href = "https://wa.me/14155238886?text=" + encodeURIComponent(message);
     </script>
 </body>
