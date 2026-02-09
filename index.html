@@ -9,16 +9,19 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: #d4d4d4; }
         .serif { font-family: 'Playfair Display', serif; }
-        /* Clase específica para el texto del logo */
-        .logo-font { font-family: 'Outfit', sans-serif; letter-spacing: -0.03em; }
+        /* Clase específica para el texto del logo con tu color de marca */
+        .logo-font { font-family: 'Outfit', sans-serif; letter-spacing: -0.03em; color: #00B5D8; }
+        /* Color de acento para textos persuasivos */
+        .brand-accent { color: #00B5D8; }
+        
         .gradient-text {
             background: linear-gradient(135deg, #ffffff 0%, #737373 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .bg-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .cta-glow { box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); transition: all 0.4s ease; }
-        .cta-glow:hover { box-shadow: 0 0 50px rgba(255, 255, 255, 0.2); transform: scale(1.02); }
+        .cta-glow { box-shadow: 0 0 30px rgba(0, 181, 216, 0.2); transition: all 0.4s ease; }
+        .cta-glow:hover { box-shadow: 0 0 50px rgba(0, 181, 216, 0.4); transform: scale(1.02); }
     </style>
 </head>
 <body class="antialiased">
@@ -26,7 +29,7 @@
     <nav class="fixed top-0 w-full z-50 py-4 px-6 flex justify-between items-center bg-black/80 backdrop-blur-xl border-b border-white/5">
         <div class="flex items-center gap-3">
             <img src="logoApp.png" alt="Anesi Logo" class="h-10 w-auto object-contain">
-            <span class="text-2xl font-bold logo-font text-white">anesi</span>
+            <span class="text-2xl font-bold logo-font">anesi</span>
         </div>
         <div class="hidden md:block text-[9px] tracking-[0.3em] text-gray-500 uppercase font-semibold">Soberanía Biológica</div>
     </nav>
@@ -38,10 +41,10 @@
                 ¿Y si tu dolor no fuera mental, sino bioquímico?
             </h1>
             <p class="text-xl md:text-3xl text-gray-400 leading-relaxed max-w-3xl mx-auto font-light">
-                Deja de tratar el síntoma. Entra en un proceso de <span class="text-white italic serif">ingeniería humana</span> diseñado para devolverte el mando de tu propia vida.
+                Deja de tratar el síntoma. Entra en un proceso de <span class="brand-accent italic serif">ingeniería humana</span> diseñado para devolverte el mando de tu propia vida.
             </p>
             <div class="mt-12 animate-bounce">
-                <p class="text-[10px] tracking-[.5em] text-gray-600 uppercase">Haz scroll para descubrir</p>
+                <p class="text-[10px] tracking-[.5em] text-gray-600 uppercase">Desliza para conocer más</p>
             </div>
         </div>
     </section>
@@ -54,7 +57,7 @@
                     <p class="text-gray-400 text-lg leading-relaxed mb-6">
                         Has probado dietas restrictivas, medicación que solo adormece y consejos positivos que se sienten vacíos. Pero sigues despertando con esa presión en el pecho o ese cansancio que el café ya no cura.
                     </p>
-                    <p class="text-xl font-semibold text-white">
+                    <p class="text-xl font-semibold brand-accent">
                         El sistema tradicional te quiere medicado y dependiente. Anesi te quiere libre y coherente.
                     </p>
                 </div>
@@ -74,15 +77,15 @@
             
             <div class="grid md:grid-cols-3 gap-8 text-left">
                 <div class="p-10 rounded-3xl bg-card">
-                    <h3 class="text-xl font-bold text-white mb-4 uppercase tracking-widest">01. Bioquímica</h3>
+                    <h3 class="text-xl font-bold brand-accent mb-4 uppercase tracking-widest">01. Bioquímica</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">Analizamos tus picos de Cortisol e Insulina. No te pedimos que te "relajes", te enseñamos a hackear tu química mediante nutrición celular.</p>
                 </div>
                 <div class="p-10 rounded-3xl bg-card border-t border-white/20">
-                    <h3 class="text-xl font-bold text-white mb-4 uppercase tracking-widest">02. Arquitectura</h3>
+                    <h3 class="text-xl font-bold brand-accent mb-4 uppercase tracking-widest">02. Arquitectura</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">Identificamos los "virus" en tu narrativa personal. Respuestas técnicas y profundas que desarman bloqueos sin clichés motivacionales.</p>
                 </div>
                 <div class="p-10 rounded-3xl bg-card">
-                    <h3 class="text-xl font-bold text-white mb-4 uppercase tracking-widest">03. Presencia</h3>
+                    <h3 class="text-xl font-bold brand-accent mb-4 uppercase tracking-widest">03. Presencia</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">Un mentor disponible 24/7 en tu WhatsApp. Privacidad absoluta para desnudarte emocionalmente y recuperar la coherencia.</p>
                 </div>
             </div>
