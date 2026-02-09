@@ -76,11 +76,11 @@
         let userLang = urlParams.get('lang') || navigator.language || navigator.userLanguage;
         
         const btn = document.getElementById('wa-btn');
-        let message = "Anesi, soy Pionero. He venido a reclamar mi máximo potencial.";
+        let message = "Hola, Anesi. He venido a reclamar mi máximo potencial.";
         let btnText = "Acceso Experiencia Anesi";
 
         if (userLang.startsWith('en')) {
-            message = "Anesi, I am Pioneer. I have come to claim my full potential..";
+            message = "Hi, Anesi. I have come to claim my full potential..";
             btnText = "Pioneer Access";
             document.getElementById('slogan').innerText = "The voice that soothes the soul";
             document.getElementById('description').innerText = "We sync your biology and your mind to unlock your potential and reclaim your biological sovereignty.";
