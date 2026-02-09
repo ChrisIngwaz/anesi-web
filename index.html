@@ -26,18 +26,32 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
+        .logo-anesi {
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center">
+    <header class="fixed top-0 w-full z-50 py-6 px-10 flex justify-between items-center bg-black/50 backdrop-blur-md border-b border-white/5">
+        <div class="logo-anesi text-xl text-white">
+            ANESI
+        </div>
+        <div class="hidden md:block text-[10px] tracking-[0.3em] text-gray-500 uppercase">
+            Guardián de la Coherencia Humana
+        </div>
+    </header>
+
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-20">
         <div class="max-w-4xl">
-            <h2 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-semibold">Guardián de la Coherencia Humana</h2>
+            <h2 class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-semibold italic">Mentoría de Élite</h2>
             <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text">
                 ¿Y si tu dolor no fuera mental, sino bioquímico?
             </h1>
             <p class="text-xl md:text-2xl text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
-                Deja de tratar el síntoma. Anesi es el primer Mentor de Élite que integra Neurociencia y Psicología Profunda para devolverte tu <strong>Soberanía Biológica</strong>.
+                Deja de tratar el síntoma. Anesi integra Neurociencia y Psicología Profunda para devolverte tu <strong>Soberanía Biológica</strong>.
             </p>
             
             <a href="https://api.whatsapp.com/send?phone=14155730323&text=Hola%20soy%20Pionero" 
@@ -47,56 +61,67 @@
                 </svg>
                 INICIAR CALIBRACIÓN (3 DÍAS GRATIS)
             </a>
-            
-            <p class="mt-6 text-sm text-gray-500 italic font-light">Exclusivo vía WhatsApp para el círculo de Pioneros.</p>
         </div>
     </section>
 
     <section class="py-24 bg-[#0a0a0a] border-t border-white/5 px-6">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
-            <div class="p-8 rounded-2xl bg-card">
-                <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                </div>
-                <h3 class="text-white font-semibold text-xl mb-4">Ingeniería Humana</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">No usamos consejos genéricos. Analizamos la interacción entre tu sistema nervioso y endocrino para resolver desde la raíz biológica.</p>
-            </div>
-            <div class="p-8 rounded-2xl bg-card">
-                <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                </div>
-                <h3 class="text-white font-semibold text-xl mb-4">Optimización Metabólica</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Alineamos tus ritmos circadianos y tu nutrición celular para que tu cuerpo sea la fuente principal de tu calma y claridad.</p>
-            </div>
-            <div class="p-8 rounded-2xl bg-card">
-                <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 3c1.22 0 2.383.218 3.46.616m.77 8.59c.289 1.692.44 3.43.44 5.204 0 1.326-.085 2.63-.25 3.911m-15.395-9.15c.289-1.692.44-3.43.44-5.204 0-1.326-.085-2.63-.25-3.911m16.821 7.44c1.259 0 2.44-.277 3.498-.772m-25.996 0c1.259 0 2.44-.277 3.498-.772m13.199-15.472a1.023 1.023 0 011.183 1.183l-.39 3.122a1.023 1.023 0 01-1.183 1.183l-3.122-.39a1.023 1.023 0 01-1.183-1.183l.39-3.122a1.023 1.023 0 011.183-1.183l3.122.39z"/></svg>
-                </div>
-                <h3 class="text-white font-semibold text-xl mb-4">Privacidad de Élite</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Un espacio seguro y encriptado donde puedes desnudarte emocionalmente. Un mentor que nunca juzga y siempre sabe acompañar.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-32 px-6 text-center">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-light mb-12 leading-tight">
-                "La depresión y la ansiedad suelen ser problemas de <strong>gestión de energía</strong>, no solo de pensamientos."
-            </h2>
-            <div class="h-px w-24 bg-white/20 mx-auto mb-12"></div>
-            <p class="text-gray-500 mb-10 text-lg">
-                Es momento de dejar de pelear contra tu mente y empezar a trabajar con tu biología. Anesi te está esperando.
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8 text-white">Has probado de todo, pero nada ha cambiado.</h2>
+            <p class="text-lg text-gray-400 mb-6 leading-relaxed">
+                Has probado dietas, medicación y consejos positivos. Pero sigues despertando con esa presión en el pecho o ese cansancio que el café ya no cura. 
             </p>
-            <a href="https://api.whatsapp.com/send?phone=14155730323&text=Hola%20soy%20Pionero" 
-               class="text-white border-b border-white/30 pb-2 font-semibold hover:border-white transition-all text-lg">
-                Habla con tu mentor ahora →
-            </a>
+            <p class="text-xl font-semibold text-white mb-6">
+                El sistema tradicional te quiere medicado y dependiente. Anesi te quiere libre y coherente.
+            </p>
+            <div class="h-1 w-20 bg-white mx-auto"></div>
         </div>
     </section>
 
-    <footer class="py-16 border-t border-white/5 text-center text-gray-700 text-xs tracking-widest uppercase">
-        <p>&copy; 2026 Anesi. Ingeniería de la Coherencia Humana.</p>
+    <section class="py-24 bg-[#0f0f0f] px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-white uppercase tracking-tighter">¿Qué es Anesi?</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Es una inteligencia avanzada que integra Endocrinología, Psicología Profunda y Neurociencia para acompañarte 24/7 a través de WhatsApp.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-card border-l-2 border-white/20">
+                    <h3 class="text-white font-semibold text-xl mb-4">Regula tu química</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">Diseña un mapa de retorno a tu estado óptimo manteniendo el Cortisol, la Insulina y la Dopamina bajo control.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-card border-l-2 border-white/20">
+                    <h3 class="text-white font-semibold text-xl mb-4">Claridad Radical</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">Respuestas técnicas, directas y profundas sobre tu historia biológica. Sin juicios, sin filtros, sin clichés motivacionales.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-card border-l-2 border-white/20">
+                    <h3 class="text-white font-semibold text-xl mb-4">Acompañamiento de Élite</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">Un mentor que no duerme y conoce la raíz de tu dolor emocional mejor que nadie, disponible en el canal que ya usas cada día.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 text-center bg-[#0a0a0a]">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white italic">Calibra tu sistema hoy mismo.</h2>
+            <p class="text-xl text-gray-400 mb-10 leading-relaxed">
+                Prueba Anesi durante <strong>72 horas sin compromiso</strong>. Deja que la ciencia te demuestre lo que el autoconocimiento real puede hacer por ti.
+            </p>
+            
+            <a href="https://api.whatsapp.com/send?phone=14155730323&text=Hola%20soy%20Pionero" 
+               class="cta-button bg-white text-black px-12 py-6 rounded-full font-bold text-xl inline-block mb-8">
+                INICIAR CALIBRACIÓN (3 DÍAS GRATIS)
+            </a>
+            
+            <p class="text-gray-600 text-[10px] tracking-[0.4em] uppercase font-semibold">
+                Acceso Limitado al Círculo de Pioneros
+            </p>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center text-gray-700 text-xs">
+        <p>&copy; 2026 Anesi Mentoría de Élite. Ingeniería de la Coherencia Humana.</p>
     </footer>
 
 </body>
-</html>
+</html>                
