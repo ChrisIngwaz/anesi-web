@@ -4,116 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnesiApp | Ingeniería de la Coherencia Humana</title>
-    
-    <link rel="icon" type="image/png" href="https://anesi.app/logoApp.png">
-    
-    <meta name="description" content="AnesiApp: Ingeniería Humana para la Soberanía Biológica. Calibramos la bioquímica y la coherencia sistémica para recuperar el mando de tu energía y vitalidad.">
-    
-    <meta property="og:title" content="AnesiApp | Ingeniería de la Coherencia Humana">
-    <meta property="og:description" content="Calibración bioquímica y soberanía biológica. Recupera el mando de tu energía.">
-    <meta property="og:image" content="https://anesi.app/logoApp.png">
-    <meta property="og:url" content="https://anesi.app/">
-    <meta property="og:type" content="website">
-
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&family=Outfit:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: #d4d4d4; }
-        .serif { font-family: 'Playfair Display', serif; }
         .brand-accent { color: #00B5D8; }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #ffffff 0%, #737373 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .bg-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); }
         .cta-glow { box-shadow: 0 0 30px rgba(0, 181, 216, 0.2); transition: all 0.4s ease; }
-        .cta-glow:hover { box-shadow: 0 0 50px rgba(0, 181, 216, 0.4); transform: scale(1.02); }
-
-        .nav-container { height: 60px; }
-        .logo-box {
-            position: absolute;
-            top: -9px;
-            left: 24px;
-            z-index: 60;
-        }
-        .logo-img {
-            height: 144px; 
-            width: auto;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
-        }
     </style>
 </head>
-<body class="antialiased">
-
-    <nav class="fixed top-0 w-full z-50 nav-container bg-black/80 backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-6">
-        <div class="logo-box">
-            <img src="logoApp.png" alt="Anesi Logo" class="logo-img">
-        </div>
-        <div class="hidden md:block ml-auto text-[9px] tracking-[0.3em] text-gray-500 uppercase font-semibold">Soberanía Biológica</div>
-    </nav>
+<body>
 
     <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center">
-        <div class="max-w-4xl pt-24"> 
-            <h2 class="text-xs uppercase tracking-[0.4em] text-gray-500 mb-6 font-semibold italic">Guardián de la Coherencia Humana</h2>
-            <h1 class="text-5xl md:text-8xl font-bold mb-8 gradient-text leading-tight">
-                ¿Y si tu dolor no fuera mental, sino bioquímico?
-            </h1>
-            <p class="text-xl md:text-3xl text-gray-400 leading-relaxed max-w-3xl mx-auto font-light">
-                Deja de tratar el síntoma.<br>
-                Entra en un proceso de<br>
-                <span class="brand-accent italic serif">ingeniería humana</span><br>
-                diseñado para devolverte el mando de tu propia vida.
-            </p>
-            <div class="mt-10 animate-bounce">
-                <p class="text-[10px] tracking-[.5em] text-gray-600 uppercase">Desliza para conocer más</p>
-            </div>
-        </div>
+        <h1 class="text-5xl font-bold mb-8">AnesiApp</h1>
+        <p class="text-xl mb-12">Recupera tu soberanía biológica.</p>
+        
+        <a id="btn-whatsapp-anesi" 
+           href="https://wa.me/14155730323" 
+           class="cta-glow bg-white text-black px-12 py-7 rounded-full font-bold text-2xl uppercase tracking-widest">
+            Iniciar en WhatsApp
+        </a>
     </section>
-
-    <section class="py-20 bg-[#080808] px-6 border-y border-white/5">
-        <div class="max-w-4xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-3xl font-bold text-white mb-6 leading-tight">Has probado de todo, pero nada ha cambiado de verdad.</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                        Has probado dietas restrictivas, medicación que solo adormece y consejos positivos que se sienten vacíos. Pero sigues despertando con esa presión en el pecho o ese cansancio que el café ya no cura.
-                    </p>
-                    <p class="text-xl font-semibold brand-accent">
-                        El sistema tradicional te quiere medicado y dependiente. Anesi te quiere libre y coherente.
-                    </p>
-                </div>
-                <div class="p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                    <p class="text-2xl italic serif text-white mb-4 leading-relaxed">
-                        "La depresión y la ansiedad suelen ser problemas de gestión de energía, no solo de pensamientos."
-                    </p>
-                    <p class="text-xs tracking-widest text-gray-500 uppercase">— Protocolo Anesi</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-6 text-center">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-4xl md:text-7xl font-bold mb-8 italic serif text-white">Recupera tu soberanía.</h2>
-            <p class="text-xl md:text-2xl mb-12 leading-relaxed text-gray-400">
-                Prueba Anesi durante <strong>72 horas sin compromiso</strong>.
-            </p>
-            
-            <a id="btn-whatsapp-anesi" 
-               href="https://wa.me/14155730323?text=Hola" 
-               class="cta-glow bg-white text-black px-12 py-7 rounded-full font-bold text-2xl inline-flex items-center gap-4 hover:scale-105 transition-all uppercase tracking-widest">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                Iniciar en WhatsApp
-            </a>
-            <p class="mt-8 text-xs font-bold tracking-[0.4em] uppercase opacity-40 italic text-white">Acceso exclusivo Círculo de Pioneros</p>
-        </div>
-    </section>
-
-    <footer class="py-8 bg-black text-center border-t border-white/5">
-        <p class="text-[10px] tracking-[0.5em] text-gray-600 uppercase">&copy; 2026 Anesi. Mentoría de Élite.</p>
-    </footer>
 
     <script>
       window.addEventListener('load', function() {
@@ -121,13 +31,30 @@
         const pionero = urlParams.get('ref');
         const botonWA = document.getElementById('btn-whatsapp-anesi');
 
-        if (botonWA) {
-          let mensaje = pionero 
-            ? `Hola Anesi, vengo de parte de ${pionero}`
-            : "Hola Anesi, quiero activar mis 3 días gratis de prueba";
-          
-          // La clave para el selector de apps es el enlace wa.me limpio
-          botonWA.href = `https://wa.me/14155730323?text=${encodeURIComponent(mensaje)}`;
+        // 1. CONFIGURACIÓN DEL BOTÓN PARA QUE SALGAN LAS 2 APPS
+        let mensajeTexto = "Hola Anesi, quiero activar mis 3 días gratis de prueba";
+        if (pionero) {
+          mensajeTexto = `Hola Anesi, vengo de parte de ${pionero}`;
+        }
+        
+        // Usamos wa.me que es el que dispara el selector del sistema (Normal vs Business)
+        botonWA.href = `https://wa.me/14155730323?text=${encodeURIComponent(mensajeTexto)}`;
+
+        // 2. CONFIGURACIÓN PARA MAKE (CONTEO DE REFERIDOS)
+        if (pionero) {
+          // Pega aquí tu URL de Make entre las comillas
+          const urlMake = "https://hook.us2.make.com/or0x7gqof7wdppsqdggs1p25uj6tm1f4"; 
+
+          fetch(urlMake, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+              referido: pionero, 
+              accion: "visita_web"
+            })
+          })
+          .then(() => console.log("Aviso enviado a Make"))
+          .catch(err => console.error("Error con Make"));
         }
       });
     </script>
