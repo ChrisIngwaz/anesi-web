@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soberanía y Legales | Anesi</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.payphonetodoesposible.com/box/v1.1/payphone-payment-box.js" type="module"></script>
+    <link href="https://cdn.payphonetodoesposible.com/box/v1.1/payphone-payment-box.css" rel="stylesheet">
+
     <style>
         body {
             background-color: #000;
@@ -21,6 +25,50 @@
         .highlight { color: #00e5ff; font-weight: 400; }
         footer { text-align: center; margin-top: 60px; font-size: 0.8rem; color: #666; }
         .btn-back { display: inline-block; color: #00e5ff; text-decoration: none; margin-bottom: 20px; font-size: 0.8rem; }
+
+        /* Estilos para la sección de pago */
+        .pago-container {
+            margin-top: 50px;
+            padding: 30px;
+            border: 1px solid #00e5ff;
+            border-radius: 15px;
+            background: #0a0a0a;
+            text-align: center;
+        }
+        .terminos-box {
+            height: 120px;
+            overflow-y: scroll;
+            background: #111;
+            border: 1px solid #333;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+        .checkbox-container {
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        input[type="checkbox"] {
+            accent-color: #00e5ff;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Contenedor del Botón: Estado Desactivado (Gris) */
+        #wrapper-payphone {
+            opacity: 0.3;
+            pointer-events: none;
+            filter: grayscale(100%);
+            transition: all 0.5s ease;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -45,13 +93,22 @@
         </ul>
     </section>
 
-    <section>
-        <h2>3. ACUERDO DE MEMBRESÍA</h2>
-        <ul>
-            <li><strong>Prueba Iniciática:</strong> 3 días de acceso total sin costo.</li>
-            <li><strong>Intercambio:</strong> $9 USD mensuales tras la prueba. Asegura la evolución constante de la tecnología.</li>
-            <li><strong>Libertad:</strong> Puedes cancelar en cualquier momento desde tu panel de usuario.</li>
-        </ul>
+    <section class="pago-container">
+        <h2 style="margin-top: 0; border: none;">ACTIVA TU ACCESO DE ÉLITE</h2>
+        <p>Para mantener el sigilo, la evolución de la tecnología y tu mentoría personalizada.</p>
+        
+        <div class="terminos-box">
+            <p><strong>ACUERDO DE RECURRENCIA:</strong> Al activar su suscripción, usted autoriza a Anesi el cobro mensual automático de $9.00 USD. Este intercambio asegura la disponibilidad 24/7 de su mentor, el procesamiento de datos encriptados y la mejora continua de los protocolos de salud. Usted es libre de cancelar este flujo en cualquier momento. La confirmación del pago implica la aceptación total del Manifiesto de Soberanía aquí expuesto.</p>
+        </div>
+
+        <label class="checkbox-container">
+            <input type="checkbox" id="check-terminos" onchange="toggleButton()"> 
+            <span>He leído y acepto el Manifiesto de Soberanía</span>
+        </label>
+
+        <div id="wrapper-payphone">
+            <div id="pp-button"></div>
+        </div>
     </section>
 
     <section>
@@ -63,5 +120,37 @@
         © 2026 Anesi - Guardián de la Coherencia Humana. <br>
         Tecnología integrada por el Uber Equipo Global.
     </footer>
+
+    <script>
+        // Lógica para aclarar y activar el botón
+        function toggleButton() {
+            const checkbox = document.getElementById('check-terminos');
+            const wrapper = document.getElementById('wrapper-payphone');
+            
+            if (checkbox.checked) {
+                wrapper.style.opacity = '1';
+                wrapper.style.filter = 'grayscale(0%)';
+                wrapper.style.pointerEvents = 'auto'; // Habilita clics
+            } else {
+                wrapper.style.opacity = '0.3';
+                wrapper.style.filter = 'grayscale(100%)';
+                wrapper.style.pointerEvents = 'none'; // Deshabilita clics
+            }
+        }
+
+        // Configuración de la Cajita de Pagos
+        window.addEventListener('DOMContentLoaded', () => {
+            new PPaymentButtonBox({
+                token: 'TU_TOKEN_AQUÍ', // REEMPLAZA CON TU TOKEN DE CREDENCIALES
+                clientTransactionId: 'anesi-' + Date.now(),
+                amount: 900, 
+                amountWithoutTax: 900,
+                currency: "USD",
+                storeId: '3JXfqGFZgkONEfM00pegAA', 
+                reference: "Suscripción Mensual Anesi",
+                lang: "es"
+            }).render('pp-button');
+        });
+    </script>
 </body>
 </html>
