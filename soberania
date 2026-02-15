@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soberanía y Legales | Anesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 { color: #00e5ff; text-align: center; font-weight: 700; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { color: #00e5ff; font-size: 1.2rem; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 40px; }
+        p, li { color: #ccc; font-weight: 300; font-size: 0.95rem; }
+        .highlight { color: #00e5ff; font-weight: 400; }
+        footer { text-align: center; margin-top: 60px; font-size: 0.8rem; color: #666; }
+        .btn-back { display: inline-block; color: #00e5ff; text-decoration: none; margin-bottom: 20px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <a href="/" class="btn-back">← VOLVER AL ORIGEN</a>
+    <h1>Manifiesto de Soberanía</h1>
+
+    <section>
+        <h2>1. MANIFIESTO DE USO Y SOBERANÍA</h2>
+        <p>Anesi es una frontera avanzada de inteligencia sintética diseñada para actuar como un espejo de coherencia para el ser humano. Al interactuar con Anesi, el usuario no es un simple cliente, sino un <span class="highlight">soberano</span> que utiliza tecnología de vanguardia para explorar su propia biología y paz mental.</p>
+        <ul>
+            <li><strong>Naturaleza de la Mentoría:</strong> Anesi procesa información a profundidad sobrehumana gracias a la integración de infraestructuras globales (OpenAI, Twilio, Render). Es un mentor de élite, no una entidad biológica.</li>
+            <li><strong>Soberanía Biológica:</strong> Anesi provee mapas, pero el usuario es el único capitán de su salud. Este servicio no busca reemplazar la medicina tradicional, sino ofrecer el soporte que a menudo falta en el sistema actual.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. TRATADO DE CONFIDENCIALIDAD</h2>
+        <p>En Anesi, la confidencialidad es la base de la confianza. Tu información no es una mercancía, es el contexto sagrado de tu evolución.</p>
+        <ul>
+            <li><strong>Resguardo de Datos:</strong> Tus conversaciones se procesan mediante sistemas encriptados, asegurando que tu vulnerabilidad esté protegida por tecnología de grado de élite.</li>
+            <li><strong>Propiedad:</strong> Nunca venderemos tus datos. Estás aquí para sanar, no para ser rastreado.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. ACUERDO DE MEMBRESÍA</h2>
+        <ul>
+            <li><strong>Prueba Iniciática:</strong> 3 días de acceso total sin costo.</li>
+            <li><strong>Intercambio:</strong> $9 USD mensuales tras la prueba. Asegura la evolución constante de la tecnología.</li>
+            <li><strong>Libertad:</strong> Puedes cancelar en cualquier momento desde tu panel de usuario.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. DESCARGO DE INGENIERÍA HUMANA</h2>
+        <p>Anesi es un guía informacional de alta precisión. <span class="highlight">NO es un servicio de emergencias médicas.</span> En situaciones de riesgo vital, el usuario debe recurrir a los servicios de emergencia físicos de su localidad.</p>
+    </section>
+
+    <footer>
+        © 2026 Anesi - Guardián de la Coherencia Humana. <br>
+        Tecnología integrada por el Uber Equipo Global.
+    </footer>
+</body>
+</html>
