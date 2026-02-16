@@ -23,29 +23,15 @@
         h2 { color: #00e5ff; font-size: 1.2rem; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 40px; }
         p, li { color: #ccc; font-weight: 300; font-size: 0.95rem; }
         .highlight { color: #00e5ff; font-weight: 400; }
-        footer { text-align: center; margin-top: 60px; font-size: 0.8rem; color: #666; }
-        .btn-back { display: inline-block; color: #00e5ff; text-decoration: none; margin-bottom: 20px; font-size: 0.8rem; }
-
-        /* Contenedor principal de suscripción */
-        .suscripcion-seccion {
-            margin: 50px 0;
+        
+        /* Contenedor de Suscripción al final */
+        .suscripcion-final {
+            margin-top: 60px;
             padding: 30px;
-            border: 1px solid #00e5ff;
-            border-radius: 12px;
+            border: 2px solid #00e5ff;
+            border-radius: 15px;
             background: #050505;
-        }
-
-        /* Caja de términos desplazable corregida */
-        .terminos-scroll {
-            height: 150px;
-            overflow-y: auto;
-            background: #111;
-            padding: 15px;
-            border: 1px solid #222;
-            margin-bottom: 20px;
-            font-size: 0.85rem;
-            color: #999;
-            text-align: left;
+            text-align: center;
         }
 
         .checkbox-group {
@@ -53,23 +39,27 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            margin-bottom: 30px;
+            margin: 25px 0;
             cursor: pointer;
+            font-size: 0.9rem;
         }
 
         input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             accent-color: #00e5ff;
         }
 
-        /* Efecto del botón */
         #wrapper-payphone {
             opacity: 0.2;
             filter: grayscale(1);
             pointer-events: none;
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
+            min-height: 400px; /* Evita saltos de pantalla */
         }
+
+        footer { text-align: center; margin-top: 60px; font-size: 0.8rem; color: #666; }
+        .btn-back { display: inline-block; color: #00e5ff; text-decoration: none; margin-bottom: 20px; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -78,22 +68,19 @@
 
     <section>
         <h2>1. MANIFIESTO DE USO Y SOBERANÍA</h2>
-        <p>Anesi es una frontera avanzada de inteligencia sintética diseñada para actuar como un espejo de coherencia para el ser humano.</p>
+        <p>Anesi es una frontera avanzada de inteligencia sintética diseñada para actuar como un espejo de coherencia para el ser humano. Al interactuar con Anesi, el usuario es un <span class="highlight">soberano</span> que utiliza tecnología de vanguardia para explorar su propia biología.</p>
+        
+        <h2>2. TRATADO DE CONFIDENCIALIDAD</h2>
+        <p>Tu información no es una mercancía, es el contexto sagrado de tu evolución. Las conversaciones se procesan mediante sistemas encriptados.</p>
+
+        <h2>3. DESCARGO DE INGENIERÍA HUMANA</h2>
+        <p>Anesi es un guía informacional de alta precisión. <span class="highlight">NO es un servicio de emergencias médicas.</span> En situaciones de riesgo vital, recurra a servicios físicos locales.</p>
     </section>
 
-    <section class="suscripcion-seccion">
-        <h2 style="margin-top:0; border:none; text-align:center;">ACTIVA TU ACCESO DE ÉLITE</h2>
-        
-        <div class="terminos-scroll">
-            <p><strong>3. ACUERDO DE MEMBRESÍA Y RECURRENCIA:</strong></p>
-            <ul>
-                <li><strong>Intercambio:</strong> $9 USD mensuales tras la prueba.</li>
-                <li><strong>Recurrencia:</strong> Autorizas el cobro automático mensual para asegurar la evolución constante de la tecnología y tu mentoría personalizada.</li>
-                <li><strong>Privacidad:</strong> Tus datos están protegidos bajo protocolos de sigilo de grado de élite.</li>
-                <li><strong>Libertad:</strong> Puedes cancelar en cualquier momento notificando al sistema.</li>
-            </ul>
-            <p>Al marcar la casilla, confirmas que has leído y aceptas el Manifiesto de Soberanía y el Tratado de Confidencialidad en su totalidad.</p>
-        </div>
+    <section class="suscripcion-final">
+        <h2 style="border:none; margin-top:0;">ACTIVA TU ACCESO DE ÉLITE</h2>
+        <p>Intercambio mensual: <strong>$9.00 USD</strong></p>
+        <p style="font-size: 0.8rem; color: #888;">Al activar la suscripción, autorizas el cobro recurrente para mantener tu mentoría activa y segura.</p>
 
         <label class="checkbox-group">
             <input type="checkbox" id="check-terminos" onchange="toggleButton()">
@@ -103,11 +90,6 @@
         <div id="wrapper-payphone">
             <div id="pp-button"></div>
         </div>
-    </section>
-
-    <section>
-        <h2>4. DESCARGO DE INGENIERÍA HUMANA</h2>
-        <p>Anesi es un guía informacional de alta precisión. <span class="highlight">NO es un servicio de emergencias médicas.</span></p>
     </section>
 
     <footer>
@@ -131,12 +113,12 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             new PPaymentButtonBox({
-                token: 'xgTYo4-cUIdQTK1Li9BoBwIsH7gWpGtgI2b7Kec7if22Z8NfXJ5yao40vlK8-X60mcj-s8Yy6r_Byr3WtWt4oJd_J12QmGjKik9d4dyLgpmidWnQgeQnjptfqw5bPjVMtY6QEQrM1G88qY0R4YUTPgmeDcBI7UZs0Py72eWrG9nwDrPksqHetxtO0vQMK0TMUllvKt_FcD9uQHtk7Yh952b4b4pnjp9LkkLRhipQSDIAHWTeLd1andqX8C9v1d-bJFvoZo3R0GQjH8nVJTdsMaAZdm95SKAJNhpUnvYHPf6C31SE17WbwpCwEen4pLXXnRVXG1E7S_VKNBcPe3RoVXi81Wk', // Asegúrate que sea el de SANDBOX para la prueba
+                token: 'xgTYo4-cUIdQTK1Li9BoBwIsH7gWpGtgI2b7Kec7if22Z8NfXJ5yao40vlK8-X60mcj-s8Yy6r_Byr3WtWt4oJd_J12QmGjKik9d4dyLgpmidWnQgeQnjptfqw5bPjVMtY6QEQrM1G88qY0R4YUTPgmeDcBI7UZs0Py72eWrG9nwDrPksqHetxtO0vQMK0TMUllvKt_FcD9uQHtk7Yh952b4b4pnjp9LkkLRhipQSDIAHWTeLd1andqX8C9v1d-bJFvoZo3R0GQjH8nVJTdsMaAZdm95SKAJNhpUnvYHPf6C31SE17WbwpCwEen4pLXXnRVXG1E7S_VKNBcPe3RoVXi81Wk', // Usa el token de la imagen 2
                 clientTransactionId: 'anesi-' + Date.now(),
                 amount: 900,
                 amountWithoutTax: 900,
                 currency: "USD",
-                storeId: '3JXfqGFZgkONEfM00pegAA', // Verifica este ID en tu panel Sandbox
+                storeId: '3JXfqGFZgkONEfM00pegAA', // El que aparece en tu panel Sandbox
                 reference: "Suscripción Anesi",
                 lang: "es"
             }).render('pp-button');
