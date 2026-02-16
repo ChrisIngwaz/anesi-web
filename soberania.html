@@ -20,69 +20,69 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Bloqueamos el scroll de la página entera */
+            overflow: hidden; /* Mantenemos el cuerpo fijo */
         }
 
-        /* 1. PARTE SUPERIOR: MANIFIESTO (40% de la pantalla) */
+        /* 1. MANIFIESTO MÁS DELGADO (30% de la pantalla) */
         .seccion-manifiesto {
-            height: 40vh; 
+            height: 30vh; 
             display: flex;
             flex-direction: column;
             border-bottom: 1px solid #00e5ff;
             background: #000;
-            padding-top: 10px;
+            padding-top: 5px;
         }
 
         .header-title {
             text-align: center;
             flex-shrink: 0;
-            margin-bottom: 5px;
         }
-        h1 { color: #00e5ff; font-size: 1rem; font-weight: 700; text-transform: uppercase; margin: 0; letter-spacing: 1px; }
+        h1 { color: #00e5ff; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin: 5px 0; letter-spacing: 1px; }
 
-        .scroll-area {
+        .scroll-area-manifiesto {
             flex-grow: 1;
-            padding: 0 20px 15px 20px;
-            overflow-y: auto; /* Aquí el usuario hace scroll con el dedo */
+            padding: 0 20px 10px 20px;
+            overflow-y: auto; /* Scroll independiente para leer */
             -webkit-overflow-scrolling: touch;
         }
 
-        h2 { color: #00e5ff; font-size: 0.8rem; border-bottom: 1px solid #1a1a1a; padding-bottom: 3px; margin-top: 15px; }
-        p { color: #ccc; font-size: 0.8rem; font-weight: 300; line-height: 1.4; margin: 8px 0; }
+        h2 { color: #00e5ff; font-size: 0.75rem; border-bottom: 1px solid #1a1a1a; margin-top: 10px; }
+        p { color: #ccc; font-size: 0.75rem; font-weight: 300; line-height: 1.4; margin: 5px 0; }
 
-        /* 2. PARTE INFERIOR: PAGO (60% de la pantalla) */
+        /* 2. ÁREA DE PAGO (70% de la pantalla con scroll propio) */
         .seccion-pago {
-            height: 60vh;
+            height: 70vh;
             background: #000;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding: 10px 10px 0 10px;
+            overflow-y: auto; /* ESTO DESCONGELA EL BOTÓN: permite bajar para llenar datos */
+            padding: 15px 10px;
+            -webkit-overflow-scrolling: touch;
         }
 
         .pago-header {
             text-align: center;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            flex-shrink: 0;
         }
 
         h3 { font-size: 0.9rem; margin: 0; color: #fff; text-transform: uppercase; }
         .precio { color: #00e5ff; font-size: 0.85rem; font-weight: 700; margin: 2px 0; display: block; }
         
-        /* Checkbox compacto */
         .accept-box {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin: 8px 0;
-            padding: 8px;
+            margin: 10px 0;
+            padding: 5px;
             cursor: pointer;
         }
         .accept-box span { font-size: 0.75rem; color: #fff; }
         input[type="checkbox"] { width: 18px; height: 18px; accent-color: #00e5ff; }
 
-        /* EL BOTÓN: Aquí ocurre la magia para que entre completo */
+        /* CONTENEDOR DEL BOTÓN */
         #wrapper-payphone {
             opacity: 0.1;
             filter: grayscale(1);
@@ -91,15 +91,15 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            /* Escalamos el widget al 80% para que quepa sin scroll */
-            transform: scale(0.85); 
+            transform: scale(0.9); /* Un poco más grande que antes para legibilidad */
             transform-origin: top center;
-            margin-top: -10px; /* Ajuste para compensar el espacio del escalado */
         }
 
-        /* Estética del scroll del manifiesto */
-        .scroll-area::-webkit-scrollbar { width: 3px; }
-        .scroll-area::-webkit-scrollbar-thumb { background: #00e5ff; }
+        /* Scrollbars elegantes */
+        .scroll-area-manifiesto::-webkit-scrollbar, 
+        .seccion-pago::-webkit-scrollbar { width: 3px; }
+        .scroll-area-manifiesto::-webkit-scrollbar-thumb, 
+        .seccion-pago::-webkit-scrollbar-thumb { background: #00e5ff; }
     </style>
 </head>
 <body>
@@ -108,13 +108,13 @@
         <div class="header-title">
             <h1>MANIFIESTO DE SOBERANÍA</h1>
         </div>
-        <div class="scroll-area">
+        <div class="scroll-area-manifiesto">
             <h2>1. USO Y SOBERANÍA</h2>
-            <p>Anesi es una frontera avanzada de inteligencia sintética diseñada para actuar como un espejo de coherencia para el ser humano.</p>
+            <p>Anesi es una frontera avanzada diseñada para actuar como un espejo de coherencia.</p>
             <h2>2. CONFIDENCIALIDAD</h2>
-            <p>Tu información no es una mercancía, es el contexto sagrado de tu evolución. Conversaciones encriptadas.</p>
+            <p>Tu información es el contexto sagrado de tu evolución. Conversaciones encriptadas.</p>
             <h2>3. MEMBRESÍA</h2>
-            <p>El intercambio de $9 USD mensuales asegura la disponibilidad 24/7 de su mentor de élite.</p>
+            <p>El intercambio de $9 USD mensuales asegura tu mentoría 24/7 de élite.</p>
             <h2>4. DESCARGO LEGAL</h2>
             <p>Anesi es guía informacional. NO es un servicio de emergencias médicas.</p>
         </div>
@@ -134,7 +134,8 @@
         <div id="wrapper-payphone">
             <div id="pp-button"></div>
         </div>
-    </div>
+        
+        <div style="height: 50px;"></div> </div>
 
     <script>
         function toggleButton() {
