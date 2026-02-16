@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soberanía y Legales | Anesi</title>
+    <title>Soberanía | Anesi</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.payphonetodoesposible.com/box/v1.1/payphone-payment-box.js" type="module"></script>
     <link href="https://cdn.payphonetodoesposible.com/box/v1.1/payphone-payment-box.css" rel="stylesheet">
 
     <style>
+        * { box-sizing: border-box; }
         body {
             background-color: #000;
             color: #fff;
@@ -19,63 +20,69 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            overflow: hidden; /* Evita scroll global */
         }
-        
-        /* CABECERA */
-        .header-minimal { 
-            padding: 15px 20px;
-            text-align: center;
-            border-bottom: 1px solid #1a1a1a;
-        }
-        h1 { color: #00e5ff; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin: 0; letter-spacing: 2px; }
-        .btn-back { display: block; color: #00e5ff; text-decoration: none; font-size: 0.7rem; margin-top: 5px; }
 
-        /* CAJÓN DESPLAZABLE DEL MANIFIESTO (50% de la pantalla) */
-        .manifiesto-container {
-            height: 50vh; 
-            background: #050505;
-            padding: 20px;
-            overflow-y: auto;
+        /* MITAD SUPERIOR: MANIFIESTO */
+        .seccion-superior {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
             border-bottom: 2px solid #00e5ff;
+            background: #050505;
         }
 
-        h2 { color: #00e5ff; font-size: 0.9rem; border-bottom: 1px solid #222; padding-bottom: 5px; margin-top: 20px; }
-        p, li { color: #aaa; font-size: 0.85rem; font-weight: 300; line-height: 1.5; }
-        .highlight { color: #00e5ff; font-weight: 400; }
+        .header-minimal {
+            padding: 10px 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        h1 { color: #00e5ff; font-size: 1rem; font-weight: 700; text-transform: uppercase; margin: 0; letter-spacing: 1px; }
 
-        /* ÁREA DE PAGO Y CHECKBOX (Resto de la pantalla) */
-        .pago-footer {
-            flex: 1;
+        .manifiesto-scroll {
+            flex-grow: 1;
+            padding: 0 25px 20px 25px;
+            overflow-y: auto; /* Solo esta parte desliza */
+        }
+
+        h2 { color: #00e5ff; font-size: 0.85rem; border-bottom: 1px solid #222; padding-bottom: 5px; margin-top: 15px; }
+        p, li { color: #aaa; font-size: 0.8rem; font-weight: 300; line-height: 1.4; }
+        .highlight { color: #00e5ff; }
+
+        /* MITAD INFERIOR: PAGO */
+        .seccion-inferior {
+            height: 50vh;
             background: #000;
-            padding: 20px;
+            padding: 15px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             text-align: center;
         }
 
-        .pago-footer h3 { font-size: 1rem; margin: 0 0 10px 0; color: #fff; }
-        .pago-footer p { font-size: 0.8rem; color: #888; margin: 0 0 15px 0; }
+        .pago-contenido { width: 100%; max-width: 400px; }
+        h3 { font-size: 0.95rem; margin: 0 0 5px 0; color: #fff; text-transform: uppercase; }
+        .precio-txt { font-size: 0.85rem; color: #00e5ff; font-weight: 700; margin-bottom: 10px; display: block; }
+        .info-txt { font-size: 0.75rem; color: #888; margin-bottom: 15px; line-height: 1.2; }
         
         .checkbox-group {
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 10px;
             margin-bottom: 15px;
             cursor: pointer;
-            font-size: 0.85rem;
-            color: #fff;
+            font-size: 0.8rem;
         }
 
         input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             accent-color: #00e5ff;
         }
 
-        /* BOTÓN DE PAYPHONE MÁS PEQUEÑO Y CENTRADO */
+        /* BOTÓN PAYPHONE */
         #wrapper-payphone {
             opacity: 0.1;
             filter: grayscale(1);
@@ -84,48 +91,53 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            transform: scale(0.9); /* Tamaño ajustado para no invadir */
+            transform: scale(0.85); /* Tamaño contenido */
         }
 
-        /* Scrollbar estética */
-        .manifiesto-container::-webkit-scrollbar { width: 5px; }
-        .manifiesto-container::-webkit-scrollbar-thumb { background: #00e5ff; border-radius: 10px; }
+        .btn-back { color: #00e5ff; text-decoration: none; font-size: 0.65rem; display: block; margin-top: 5px; }
+
+        /* Scrollbar */
+        .manifiesto-scroll::-webkit-scrollbar { width: 4px; }
+        .manifiesto-scroll::-webkit-scrollbar-thumb { background: #00e5ff; border-radius: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="header-minimal">
-        <h1>Manifiesto de Soberanía</h1>
-        <a href="/" class="btn-back">← VOLVER AL ORIGEN</a>
-    </div>
-
-    <div class="manifiesto-container">
-        <section>
-            <h2>1. MANIFIESTO DE USO Y SOBERANÍA</h2>
-            <p>Anesi es una frontera avanzada de inteligencia sintética diseñada para actuar como un espejo de coherencia para el ser humano. Al interactuar con Anesi, el usuario no es un simple cliente, sino un <span class="highlight">soberano</span> que utiliza tecnología de vanguardia para explorar su propia biología y paz mental.</p>
+    <div class="seccion-superior">
+        <div class="header-minimal">
+            <h1>Manifiesto de Soberanía</h1>
+        </div>
+        <div class="manifiesto-scroll">
+            <h2>1. USO Y SOBERANÍA</h2>
+            <p>Anesi es una frontera avanzada de inteligencia sintética diseñada para actuar como un espejo de coherencia. Al interactuar con Anesi, el usuario es un <span class="highlight">soberano</span> que utiliza tecnología de vanguardia para explorar su propia biología.</p>
             
             <h2>2. TRATADO DE CONFIDENCIALIDAD</h2>
-            <p>Tu información no es una mercancía, es el contexto sagrado de tu evolución. Las conversaciones se procesan mediante sistemas encriptados, asegurando que tu vulnerabilidad esté protegida por tecnología de grado de élite.</p>
+            <p>Tu información no es una mercancía, es el contexto sagrado de tu evolución. Las conversaciones se procesan mediante sistemas encriptados.</p>
 
             <h2>3. ACUERDO DE MEMBRESÍA</h2>
-            <p>El intercambio de <span class="highlight">$9 USD mensuales</span> asegura la disponibilidad 24/7 de su mentor, el procesamiento de datos encriptados y la mejora continua de los protocolos de salud.</p>
+            <p>El intercambio de <span class="highlight">$9 USD mensuales</span> asegura la disponibilidad 24/7 de su mentor y la mejora continua de los protocolos.</p>
 
-            <h2>4. DESCARGO DE INGENIERÍA HUMANA</h2>
-            <p>Anesi es un guía informacional de alta precisión. <span class="highlight">NO es un servicio de emergencias médicas.</span> En situaciones de riesgo vital, el usuario debe recurrir a los servicios de emergencia físicos de su localidad.</p>
-        </section>
+            <h2>4. DESCARGO LEGAL</h2>
+            <p>Anesi es guía informacional. <span class="highlight">NO es un servicio de emergencias médicas.</span> En situaciones de riesgo, recurra a servicios locales.</p>
+        </div>
     </div>
 
-    <div class="pago-footer">
-        <h3>ACTIVA TU ACCESO DE ÉLITE</h3>
-        <p>Intercambio mensual: $9.00 USD</p>
-        
-        <label class="checkbox-group">
-            <input type="checkbox" id="check-terminos" onchange="toggleButton()">
-            <span>He leído y acepto el Manifiesto</span>
-        </label>
+    <div class="seccion-inferior">
+        <div class="pago-contenido">
+            <h3>Activa tu acceso de Élite</h3>
+            <span class="precio-txt">$9.00 USD / Mes</span>
+            <p class="info-txt">Autorizas el cobro recurrente para mantener tu mentoría activa y segura.</p>
+            
+            <label class="checkbox-group">
+                <input type="checkbox" id="check-terminos" onchange="toggleButton()">
+                <span>Acepto el Manifiesto de Soberanía</span>
+            </label>
 
-        <div id="wrapper-payphone">
-            <div id="pp-button"></div>
+            <div id="wrapper-payphone">
+                <div id="pp-button"></div>
+            </div>
+
+            <a href="/" class="btn-back">← VOLVER AL ORIGEN</a>
         </div>
     </div>
 
