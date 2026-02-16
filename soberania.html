@@ -23,9 +23,9 @@
             overflow: hidden;
         }
 
-        /* MITAD SUPERIOR: MANIFIESTO */
+        /* 1/3 SUPERIOR: MANIFIESTO COMPACTO */
         .seccion-superior {
-            height: 50vh;
+            height: 30vh;
             display: flex;
             flex-direction: column;
             border-bottom: 1px solid #00e5ff;
@@ -33,39 +33,40 @@
         }
 
         .header-minimal {
-            padding: 10px 0;
+            padding: 8px 0;
             text-align: center;
             flex-shrink: 0;
         }
-        h1 { color: #00e5ff; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin: 0; }
+        h1 { color: #00e5ff; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin: 0; letter-spacing: 1px; }
 
         .manifiesto-scroll {
             flex-grow: 1;
-            padding: 0 20px 15px 20px;
+            padding: 0 20px 10px 20px;
             overflow-y: auto;
         }
 
-        h2 { color: #00e5ff; font-size: 0.75rem; border-bottom: 1px solid #222; padding-bottom: 3px; margin-top: 12px; }
-        p { color: #aaa; font-size: 0.75rem; font-weight: 300; line-height: 1.3; margin: 8px 0; }
+        h2 { color: #00e5ff; font-size: 0.7rem; border-bottom: 1px solid #222; margin-top: 10px; }
+        p { color: #aaa; font-size: 0.7rem; font-weight: 300; line-height: 1.2; margin: 5px 0; }
 
-        /* MITAD INFERIOR: PAGO (ORDENADO Y SIN MONTARSE) */
+        /* 2/3 INFERIOR: ÁREA DE PAGO EXPANDIDA */
         .seccion-inferior {
-            height: 50vh;
-            background: #000;
+            height: 70vh;
+            background: #fff; /* Fondo blanco para que el formulario de Payphone resalte como en tu foto */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Alinea al inicio para dar espacio */
-            padding-top: 15px;
+            overflow-y: auto; /* Permite scroll si el formulario es muy largo en móviles pequeños */
+            padding: 15px 10px;
         }
 
-        .pago-box {
-            width: 90%;
+        .pago-header {
             text-align: center;
+            margin-bottom: 10px;
+            width: 100%;
         }
 
-        h3 { font-size: 0.85rem; margin: 0; color: #fff; text-transform: uppercase; }
-        .precio { color: #00e5ff; font-size: 0.8rem; font-weight: 700; margin: 5px 0; display: block; }
+        h3 { font-size: 0.9rem; margin: 0; color: #000; text-transform: uppercase; font-weight: 700; }
+        .precio { color: #00b8d4; font-size: 0.85rem; font-weight: 700; margin: 4px 0; display: block; }
         
         .checkbox-container {
             display: flex;
@@ -74,40 +75,38 @@
             gap: 8px;
             margin: 10px 0;
             cursor: pointer;
+            background: #f5f5f5;
+            padding: 8px;
+            border-radius: 5px;
+            width: fit-content;
         }
 
-        .checkbox-container span { font-size: 0.7rem; color: #ccc; }
+        .checkbox-container span { font-size: 0.7rem; color: #333; font-weight: 600; }
 
         input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             accent-color: #00e5ff;
-            margin: 0;
         }
 
-        /* CONTENEDOR DEL BOTÓN: PEQUEÑO Y ELEGANTE */
+        /* CONTENEDOR DEL BOTÓN: TAMAÑO REAL PARA EL FORMULARIO */
         #wrapper-payphone {
-            opacity: 0.1;
+            opacity: 0.3;
             filter: grayscale(1);
             pointer-events: none;
             transition: all 0.4s ease;
-            display: flex;
-            justify-content: center;
-            margin-top: 5px;
-            /* Aquí controlamos el tamaño visual del botón de Payphone */
-            transform: scale(0.75); 
-            transform-origin: top center;
+            width: 100%;
+            max-width: 350px;
         }
 
         .btn-back { 
-            color: #444; 
+            color: #888; 
             text-decoration: none; 
-            font-size: 0.6rem; 
-            margin-top: -15px; /* Compensa el espacio del transform scale */
+            font-size: 0.65rem; 
+            margin: 15px 0;
             display: block; 
         }
 
-        /* Estética del scroll */
         .manifiesto-scroll::-webkit-scrollbar { width: 3px; }
         .manifiesto-scroll::-webkit-scrollbar-thumb { background: #00e5ff; }
     </style>
@@ -120,32 +119,32 @@
         </div>
         <div class="manifiesto-scroll">
             <h2>1. USO Y SOBERANÍA</h2>
-            <p>Anesi es una frontera avanzada de inteligencia sintética diseñada para actuar como un espejo de coherencia.</p>
+            <p>Anesi es un espejo de coherencia. Al interactuar, el usuario es un soberano que utiliza tecnología avanzada.</p>
             <h2>2. CONFIDENCIALIDAD</h2>
-            <p>Tu información no es una mercancía, es el contexto sagrado de tu evolución.</p>
+            <p>Tu información es el contexto sagrado de tu evolución. Conversaciones encriptadas.</p>
             <h2>3. MEMBRESÍA</h2>
-            <p>El intercambio de $9 USD mensuales asegura la disponibilidad 24/7 de su mentor.</p>
+            <p>Intercambio de $9 USD mensuales para asegurar tu mentoría 24/7.</p>
             <h2>4. DESCARGO LEGAL</h2>
             <p>Anesi es guía informacional. NO es un servicio de emergencias médicas.</p>
         </div>
     </div>
 
     <div class="seccion-inferior">
-        <div class="pago-box">
+        <div class="pago-header">
             <h3>ACCESO DE ÉLITE</h3>
             <span class="precio">$9.00 USD / Mes</span>
             
             <label class="checkbox-container">
                 <input type="checkbox" id="check-terminos" onchange="toggleButton()">
-                <span>He leído y acepto el Manifiesto</span>
+                <span>Acepto el Manifiesto de Soberanía</span>
             </label>
-
-            <div id="wrapper-payphone">
-                <div id="pp-button"></div>
-            </div>
-
-            <a href="/" class="btn-back">← VOLVER AL INICIO</a>
         </div>
+
+        <div id="wrapper-payphone">
+            <div id="pp-button"></div>
+        </div>
+
+        <a href="/" class="btn-back">← VOLVER AL ORIGEN</a>
     </div>
 
     <script>
@@ -157,7 +156,7 @@
                 wrap.style.filter = "grayscale(0)";
                 wrap.style.pointerEvents = "auto";
             } else {
-                wrap.style.opacity = "0.1";
+                wrap.style.opacity = "0.3";
                 wrap.style.filter = "grayscale(1)";
                 wrap.style.pointerEvents = "none";
             }
