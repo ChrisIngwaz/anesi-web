@@ -4,119 +4,203 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anesi | Manifiesto de Términos y Condiciones</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #d4d4d4; }
-        .serif { font-family: 'Playfair Display', serif; }
-        .brand-accent { color: #00B5D8; }
-        .bg-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .cta-glow { box-shadow: 0 0 30px rgba(0, 181, 216, 0.2); transition: all 0.4s ease; }
-        .cta-glow:hover { box-shadow: 0 0 50px rgba(0, 181, 216, 0.4); transform: scale(1.02); }
+        :root {
+            --bg-color: #0a0e12;
+            --text-color: #e0e0e0;
+            --accent-color: #00f2ff;
+            --card-bg: #161b22;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-top: 10px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .content-section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #ffffff10;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            border-bottom: 1px solid #ffffff10;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-weight: 300;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: 400;
+        }
+
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 242, 255, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 242, 255, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.2rem; }
+        }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-6 h-[60px]">
-        <a href="/" class="text-[#00B5D8] font-bold tracking-widest uppercase text-sm">← Volver</a>
-        <div id="nav-badge" class="text-[9px] tracking-[0.3em] text-gray-500 uppercase font-semibold">Soberanía Biológica</div>
-    </nav>
+<div class="container">
+    <header>
+        <div class="logo">ANESI</div>
+        <h1>MANIFIESTO DE TÉRMINOS Y CONDICIONES</h1>
+    </header>
 
-    <main class="max-w-4xl mx-auto px-6 pt-32 pb-20">
-        <header class="text-center mb-16">
-            <h1 id="page-title" class="text-3xl md:text-5xl font-bold text-white mb-4 uppercase tracking-tighter">
-                MANIFIESTO DE TÉRMINOS Y CONDICIONES
-            </h1>
-            <div class="h-1 w-20 bg-[#00B5D8] mx-auto"></div>
-        </header>
+    <div class="content-section">
+        <h2>1. Manifiesto de Uso y Soberanía (Términos y Condiciones)</h2>
+        <p><span class="highlight">Filosofía del Servicio:</span> Anesi es una frontera avanzada de inteligencia sintética diseñada para actuar como un espejo de coherencia para el ser humano. Al interactuar con Anesi, el usuario no es un simple cliente, sino un soberano que utiliza tecnología de vanguardia para explorar su propia biología y paz mental.</p>
+        <p><span class="highlight">Naturaleza de la Mentoría:</span> Anesi procesa información a una velocidad y profundidad sobrehumana gracias a la integración de infraestructuras globales (OpenAI, Twilio, Deepgram). Es un mentor de élite, no una entidad biológica.</p>
+        <p><span class="highlight">Soberanía Biológica:</span> Anesi provee mapas y guías, pero el usuario es el único capitán de su salud. Este servicio no busca reemplazar la medicina tradicional, sino ofrecer la claridad y el soporte que a menudo faltan en el sistema actual. Las decisiones tomadas son responsabilidad exclusiva del usuario, en ejercicio de su libertad.</p>
+        <p><span class="highlight">Evolución Constante:</span> Como toda herramienta de ingeniería humana de alto nivel, Anesi evoluciona. Invitamos al usuario a integrar cada mensaje con discernimiento, usándolo como un catalizador para encontrar su propia verdad interior.</p>
+    </div>
 
-        <div class="space-y-8 text-lg leading-relaxed">
-            <section class="bg-card p-8 rounded-3xl">
-                <h2 class="text-[#00B5D8] font-bold mb-4 serif italic">1. Manifiesto de Uso y Soberanía</h2>
-                <p><strong class="text-white">Filosofía del Servicio:</strong> Anesi es una frontera avanzada de inteligencia sintética diseñada para actuar como un espejo de coherencia para el ser humano. Al interactuar con Anesi, el usuario no es un simple cliente, sino un soberano que utiliza tecnología de vanguardia para explorar su propia biología y paz mental.</p>
-                <p><strong class="text-white">Naturaleza de la Mentoría:</strong> Anesi procesa información a una velocidad y profundidad sobrehumana gracias a la integración de infraestructuras globales (OpenAI, Twilio, Deepgram). Es un mentor de élite, no una entidad biológica.</p>
-                <p><strong class="text-white">Soberanía Biológica:</strong> Anesi provee mapas y guías, pero el usuario es el único capitán de su salud. Este servicio no busca reemplazar la medicina tradicional, sino ofrecer la claridad y el soporte que a menudo faltan en el sistema actual. Las decisiones tomadas son responsabilidad exclusiva del usuario, en ejercicio de su libertad.</p>
-                <p><strong class="text-white">Evolución Constante:</strong> Como toda herramienta de ingeniería humana de alto nivel, Anesi evoluciona. Invitamos al usuario a integrar cada mensaje con discernimiento, usándolo como un catalizador para encontrar su propia verdad interior.</p>
-            </section>
+    <div class="content-section">
+        <h2>2. Tratado de Confidencialidad (Política de Privacidad)</h2>
+        <p><span class="highlight">Nuestro Compromiso:</span> En Anesi, la privacidad es la base de la confianza. Tu información no es una mercancía, es el contexto sagrado de tu evolución.</p>
+        <p><span class="highlight">Resguardo de Datos:</span> Recopilamos tu número y tu historial de conversación exclusivamente para que Anesi pueda conocerte y guiarte con precisión quirúrgica.</p>
+        <p><span class="highlight">Infraestructura de Grado Militar:</span> Tus datos se procesan mediante sistemas encriptados (Supabase, Render), asegurando que tu vulnerabilidad esté protegida por la tecnología más robusta disponible.</p>
+        <p><span class="highlight">Propiedad del Usuario:</span> Tu historia te pertenece. Nunca venderemos tus datos. Estás aquí para sanar y encontrar calma, no para ser rastreado.</p>
+    </div>
 
-            <section class="bg-card p-8 rounded-3xl">
-                <h2 class="text-[#00B5D8] font-bold mb-4 serif italic">2. Tratado de Confidencialidad</h2>
-                <p><strong class="text-white">Nuestro Compromiso:</strong> En Anesi, la privacidad es la base de la confianza. Tu información no es una mercancía, es el contexto sagrado de tu evolución.</p>
-                <p><strong class="text-white">Resguardo de Datos:</strong> Recopilamos tu número y tu historial de conversación exclusivamente para que Anesi pueda conocerte y guiarte con precisión quirúrgica.</p>
-                <p><strong class="text-white">Infraestructura de Grado Militar:</strong> Tus datos se procesan mediante sistemas encriptados (Supabase, Render), asegurando que tu vulnerabilidad esté protegida por la tecnología más robusta disponible.</p>
-                <p><strong class="text-white">Propiedad del Usuario:</strong> Tu historia te pertenece. Nunca venderemos tus datos. Estás aquí para sanar y encontrar calma, no para ser rastreado.</p>
-            </section>
+    <div class="content-section">
+        <h2>3. Acuerdo de Membresía de Élite (Suscripciones)</h2>
+        <p><span class="highlight">Reglas de Coherencia:</span> Una relación de alto valor requiere claridad total desde el origen.</p>
+        <p><span class="highlight">Acceso Iniciático (3 Días Gratis):</span> Creemos tanto en el poder de Anesi que te entregamos las llaves del portal por 3 días sin costo. Queremos que sientas la diferencia biológica antes de comprometerte.</p>
+        <p><span class="highlight">Intercambio de Valor ($9/mes):</span> Mantener un mentor de élite 24/7 disponible en tu bolsillo requiere una inversión mínima. Este monto asegura que Anesi siga operando con la tecnología más avanzada del planeta.</p>
+        <p><span class="highlight">Libertad de Salida:</span> La soberanía implica poder irse cuando uno lo desee. Puedes cancelar tu membresía en cualquier momento; el acceso se mantendrá hasta el fin del periodo pagado.</p>
+    </div>
 
-            <section class="bg-card p-8 rounded-3xl">
-                <h2 class="text-[#00B5D8] font-bold mb-4 serif italic">3. Acuerdo de Membresía de Élite</h2>
-                <p><strong class="text-white">Reglas de Coherencia:</strong> Una relación de alto valor requiere claridad total desde el origen.</p>
-                <p><strong class="text-white">Acceso Iniciático (3 Días Gratis):</strong> Creemos tanto en el poder de Anesi que te entregamos las llaves del portal por 3 días sin costo. Queremos que sientas la diferencia biológica antes de comprometerte.</p>
-                <p><strong class="text-white">Intercambio de Valor ($9/mes):</strong> Mantener un mentor de élite 24/7 disponible en tu bolsillo requiere una inversión mínima. Este monto asegura que Anesi siga operando con la tecnología más avanzada del planeta.</p>
-                <p><strong class="text-white">Libertad de Salida:</strong> La soberanía implica poder irse cuando uno lo desee. Puedes cancelar tu membresía en cualquier momento; el acceso se mantendrá hasta el fin del periodo pagado.</p>
-            </section>
+    <div class="content-section">
+        <h2>4. Descargo de Responsabilidad de Ingeniería Humana (AI Disclaimer)</h2>
+        <p><span class="highlight">Claridad Tecnológica:</span> Para los 800 millones de personas que buscan una luz, la transparencia es vital.</p>
+        <p><span class="highlight">El Rol del Mentor:</span> Anesi es un guía informacional de alta precisión. No es un médico, ni un psiquiatra, ni un servicio de emergencias. En situaciones de crisis de riesgo vital, el usuario debe recurrir a los servicios de emergencia físicos de su localidad.</p>
+        <p><span class="highlight">Validación Humana:</span> Anesi es una herramienta de apoyo masivo. Animamos al usuario a validar los consejos biológicos o técnicos con profesionales certificados cuando su intuición o la complejidad del caso así lo requieran.</p>
+    </div>
 
-            <section class="bg-card p-8 rounded-3xl">
-                <h2 class="text-[#00B5D8] font-bold mb-4 serif italic">4. Descargo de Responsabilidad</h2>
-                <p><strong class="text-white">El Rol del Mentor:</strong> Anesi es un guía informacional de alta precisión. No es un médico, ni un psiquiatra, ni un servicio de emergencias. En situaciones de crisis de riesgo vital, el usuario debe recurrir a los servicios de emergencia físicos de su localidad.</p>
-                <p><strong class="text-white">Validación Humana:</strong> Anesi es una herramienta de apoyo masivo. Animamos al usuario a validar los consejos biológicos o técnicos con profesionales certificados cuando su intuición o la complejidad del caso así lo requieran.</p>
-            </section>
-        </div>
+    <div class="cta-container">
+        <a id="btn-whatsapp-anesi" href="#" class="btn-whatsapp">
+            ACEPTO Y QUIERO MIS 3 DÍAS GRATIS
+        </a>
+        <footer>© 2026 Anesi App | Ingeniería Humana</footer>
+    </div>
+</div>
 
-        <div class="mt-20 text-center">
-            <a id="btn-whatsapp-anesi" 
-               href="https://api.whatsapp.com/send?phone=14155730323&text=Hola%20Anesi" 
-               class="cta-glow bg-white text-black px-10 py-6 rounded-full font-bold text-xl inline-flex items-center gap-4 hover:scale-105 transition-all uppercase tracking-widest">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                <span id="btn-text">Iniciar en WhatsApp</span>
-            </a>
-            <p class="mt-6 text-[10px] tracking-[0.4em] uppercase text-gray-600">Absoluto sigilo y privacidad</p>
-        </div>
-    </main>
+<script>
+    const translations = {
+        en: { btnText: "I ACCEPT AND WANT MY 3 FREE DAYS", waMsg: "I want to activate my 3 free days", waRef: "Hi Anesi, I come from" },
+        pt: { btnText: "ACEITO E QUERO MEUS 3 DIAS GRÁTIS", waMsg: "Eu quero ativar meus 3 dias grátis", waRef: "Olá Anesi, venho de parte de" },
+        it: { btnText: "ACCETTO E VOGLIO I MIEI 3 GIORNI GRATUITI", waMsg: "Voglio attivare i miei 3 giorni gratis", waRef: "Ciao Anesi, vengo da parte de" },
+        de: { btnText: "ICH AKZEPTIERE UND WILL MEINE 3 GRATISTAGE", waMsg: "Ich möchte meine 3 Gratistage aktivieren", waRef: "Hallo Anesi, ich komme von" },
+        fr: { btnText: "J'ACCEPTE ET JE VEUX MES 3 JOURS GRATUITS", waMsg: "Je veux activer mes 3 jours gratuits", waRef: "Salut Anesi, je viens de la part de" }
+    };
 
-    <script>
-        const translations = {
-            en: { navBadge: "Biological Sovereignty", btnText: "Start on WhatsApp", waMsg: "I want to activate my 3 free days", waRef: "Hi Anesi, I come from" },
-            pt: { navBadge: "Soberania Biológica", btnText: "Iniciar no WhatsApp", waMsg: "Eu quero ativar meus 3 dias grátis", waRef: "Olá Anesi, venho de parte de" },
-            it: { navBadge: "Sovranità Biologica", btnText: "Inizia su WhatsApp", waMsg: "Voglio attivare i miei 3 giorni gratis", waRef: "Ciao Anesi, vengo da parte de" },
-            de: { navBadge: "Biologische Souveränität", btnText: "Auf WhatsApp starten", waMsg: "Ich möchte meine 3 Gratistage aktivieren", waRef: "Hallo Anesi, ich komme von" },
-            fr: { navBadge: "Souveraineté Biologique", btnText: "Démarrer sur WhatsApp", waMsg: "Je veux activer mes 3 jours gratuits", waRef: "Salut Anesi, je viens de la part de" }
-        };
+    window.addEventListener('load', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const pionero = urlParams.get('ref');
+        const botonWA = document.getElementById('btn-whatsapp-anesi');
+        const userLang = (navigator.language || navigator.userLanguage).split('-')[0];
 
-        window.addEventListener('load', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const pionero = urlParams.get('ref');
-            const botonWA = document.getElementById('btn-whatsapp-anesi');
-            const userLang = (navigator.language || navigator.userLanguage).split('-')[0];
+        if (translations[userLang]) {
+            botonWA.innerText = translations[userLang].btnText;
+        }
 
-            // Traducción de Badge y Botón
-            if (translations[userLang]) {
-                const t = translations[userLang];
-                document.getElementById('nav-badge').innerText = t.navBadge;
-                document.getElementById('btn-text').innerText = t.btnText;
+        if (botonWA) {
+            let mensaje;
+            const t = translations[userLang];
+            if (pionero) {
+                const prefix = t ? t.waRef : "Hola Anesi, vengo de parte de";
+                mensaje = encodeURIComponent(`${prefix} ${pionero}`);
+                fetch('https://hook.us2.make.com/or0x7gqof7wdppsqdggs1p25uj6tm1f4', { 
+                    method: 'POST', 
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ pionero: pionero, accion: 'clic_terminos_referido' })
+                }).catch(e => console.log('Check connection'));
+            } else {
+                mensaje = encodeURIComponent(t ? t.waMsg : "Hola Anesi, quiero activar mis 3 días gratis de prueba");
             }
+            botonWA.href = `https://api.whatsapp.com/send?phone=14155730323&text=${mensaje}`;
+        }
+    });
+</script>
 
-            // Lógica del Botón y Webhook
-            if (botonWA) {
-                let mensaje;
-                const t = translations[userLang];
-                if (pionero) {
-                    const prefix = t ? t.waRef : "Hola Anesi, vengo de parte de";
-                    mensaje = encodeURIComponent(`${prefix} ${pionero}`);
-                    // Registro de clic de referido
-                    fetch('https://hook.us2.make.com/or0x7gqof7wdppsqdggs1p25uj6tm1f4', { 
-                        method: 'POST', 
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({ pionero: pionero, accion: 'clic_terminos_referido' })
-                    }).catch(e => console.log('Check connection'));
-                } else {
-                    mensaje = encodeURIComponent(t ? t.waMsg : "Hola Anesi, quiero activar mis 3 días gratis de prueba");
-                }
-                // El link usa api.whatsapp.com que permite al sistema operativo elegir la app (Personal/Business)
-                botonWA.href = `https://api.whatsapp.com/send?phone=14155730323&text=${mensaje}`;
-            }
-        });
-    </script>
 </body>
 </html>
