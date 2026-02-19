@@ -173,17 +173,43 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            new PPaymentButtonBox({
-                token: 'xgTYo4-cUIdQTK1Li9BoBwIsH7gWpGtgI2b7Kec7if22Z8NfXJ5yao40vlK8-X60mcj-s8Yy6r_Byr3WtWt4oJd_J12QmGjKik9d4dyLgpmidWnQgeQnjptfqw5bPjVMtY6QEQrM1G88qY0R4YUTPgmeDcBI7UZs0Py72eWrG9nwDrPksqHetxtO0vQMK0TMUllvKt_FcD9uQHtk7Yh952b4b4pnjp9LkkLRhipQSDIAHWTeLd1andqX8C9v1d-bJFvoZo3R0GQjH8nVJTdsMaAZdm95SKAJNhpUnvYHPf6C31SE17WbwpCwEen4pLXXnRVXG1E7S_VKNBcPe3RoVXi81Wk', 
-                clientTransactionId: 'anesi-' + Date.now(),
-                amount: 900,
-                amountWithoutTax: 900,
-                currency: "USD",
-                storeId: '8275f58d-30d9-4306-ac06-e3d605e9d2a7', 
-                reference: "Suscripción Anesi",
-                lang: "es"
-            }).render('pp-button');
-        });
+    new PPaymentButtonBox({
+        token: 'xgTYo4-cUIdQTK1Li9BoBwIsH7gWpGtgI2b7Kec7if22Z8NfXJ5yao40vlK8-X60mcj-s8Yy6r_Byr3WtWt4oJd_J12QmGjKik9d4dyLgpmidWnQgeQnjptfqw5bPjVMtY6QEQrM1G88qY0R4YUTPgmeDcBI7UZs0Py72eWrG9nwDrPksqHetxtO0vQMK0TMUllvKt_FcD9uQHtk7Yh952b4b4pnjp9LkkLRhipQSDIAHWTeLd1andqX8C9v1d-bJFvoZo3R0GQjH8nVJTdsMaAZdm95SKAJNhpUnvYHPf6C31SE17WbwpCwEen4pLXXnRVXG1E7S_VKNBcPe3RoVXi81Wk', 
+        clientTransactionId: 'anesi-' + Date.now(),
+        amount: 900,
+        amountWithoutTax: 900,
+        currency: "USD",
+        storeId: '8275f58d-30d9-4306-ac06-e3d605e9d2a7', 
+        reference: "Suscripción Anesi",
+        lang: "es",
+        // AQUÍ EMPIEZA LA CONEXIÓN CON EL SERVIDOR
+        onCompleted: (model, actions) => {
+            console.log("Pago aprobado en Payphone, activando soberanía...");
+            
+            // Reemplaza 'TU_URL_DE_RENDER_AQUÍ' con la URL de tu servidor backend
+            fetch('https://TU_URL_DE_RENDER_AQUÍ/confirmar-pago', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id: model.id,
+                    clientTxId: model.clientTransactionId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    alert("¡Soberanía activada! Ya puedes regresar a WhatsApp para continuar tu proceso.");
+                    window.location.href = "https://wa.me/14155730323"; // Redirige directo a Anesi
+                } else {
+                    alert("Pago exitoso, pero hubo un error en la activación. No te preocupes, Anesi lo resolverá en breve.");
+                }
+            })
+            .catch(err => {
+                console.error("Error conectando con el servidor de Anesi:", err);
+            });
+        }
+    }).render('pp-button');
+});
     </script>
 </body>
 </html>
