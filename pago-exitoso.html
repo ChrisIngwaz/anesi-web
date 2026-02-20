@@ -8,73 +8,13 @@
         body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; background-color: #f4f7f6; color: #333; }
         .card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 400px; }
         .btn { display: inline-block; margin-top: 1.5rem; padding: 0.8rem 1.5rem; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
-        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 30px; height: 30px; animation: spin 2s linear infinite; margin: 10px auto; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
     <div class="card">
-        <h1 id="titulo">Procesando tu suscripción...</h1>
-        <div id="loader" class="loader"></div>
-        <p id="mensaje">Estamos validando tu pago con el círculo de Anesi. No cierres esta ventana.</p>
-        <a id="btn-volver" href="https://wa.me/14155730323" class="btn" style="display: none;">Volver a Anesi en WhatsApp</a>
+        <h1>¡Soberanía Activada!</h1>
+        <p>Tu suscripción ha sido confirmada. El sigilo y la sabiduría de Anesi te esperan.</p>
+        <a href="https://wa.me/14155730323" class="btn">Volver a Anesi en WhatsApp</a>
     </div>
-
-    <script>
-        window.onload = async () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const transactionId = urlParams.get('id');
-            const clientTxId = urlParams.get('clientTransactionId');
-
-            if (!transactionId || !clientTxId) {
-                document.getElementById('titulo').innerText = "Ups...";
-                document.getElementById('mensaje').innerText = "No pudimos encontrar los datos de tu pago. Si ya pagaste, contacta a soporte.";
-                document.getElementById('loader').style.display = "none";
-                return;
-            }
-
-            // Verificar si ya se procesó esta transacción (evitar duplicados)
-            const alreadyProcessed = sessionStorage.getItem(`processed_${clientTxId}`);
-            if (alreadyProcessed) {
-                document.getElementById('titulo').innerText = "¡Soberanía Activada!";
-                document.getElementById('mensaje').innerText = "Tu suscripción ya fue confirmada. El sigilo y la sabiduría de Anesi te esperan.";
-                document.getElementById('loader').style.display = "none";
-                document.getElementById('btn-volver').style.display = "inline-block";
-                return;
-            }
-
-            try {
-                const response = await fetch('https://anesi-backend.onrender.com/confirmar-pago', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: transactionId, clientTxId: clientTxId })
-                });
-
-                const data = await response.json();
-
-                if (response.ok && data.success) {
-                    // Marcar como procesado para evitar reenvíos
-                    sessionStorage.setItem(`processed_${clientTxId}`, 'true');
-                    
-                    document.getElementById('titulo').innerText = "¡Soberanía Activada!";
-                    document.getElementById('mensaje').innerText = "Tu suscripción ha sido confirmada. El sigilo y la sabiduría de Anesi te esperan.";
-                    document.getElementById('loader').style.display = "none";
-                    document.getElementById('btn-volver').style.display = "inline-block";
-                } else if (response.status === 404 && data.error === "Usuario no encontrado") {
-                    // El pago se aprobó pero no se encontró el usuario
-                    document.getElementById('titulo').innerText = "Validación en proceso";
-                    document.getElementById('mensaje').innerText = "Tu pago fue exitoso. Estamos vinculando tu cuenta manualmente. En breve recibirás un mensaje de WhatsApp de Anesi.";
-                    document.getElementById('loader').style.display = "none";
-                } else {
-                    throw new Error(data.error || "Error en la confirmación");
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                document.getElementById('titulo').innerText = "Validación pendiente";
-                document.getElementById('mensaje').innerText = "El pago fue exitoso, pero tardaremos unos minutos en activar tu WhatsApp automáticamente.";
-                document.getElementById('loader').style.display = "none";
-            }
-        };
-    </script>
 </body>
 </html>
