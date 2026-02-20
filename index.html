@@ -266,7 +266,7 @@
                 body: JSON.stringify({ pionero: pionero, accion: 'clic_referido' })
             }).catch(e => console.log('Check connection'));
           } else {
-            mensaje = encodeURIComponent(t ? t.waMsg : "Hola Anesi, vengo a activar mis 3 días de prueba gratis. Estoy listo para recuperar mi coherencia y empezar mi proceso de Ingeniería Humana");
+            mensaje = encodeURIComponent(t ? t.waMsg : "Hola, vengo a activar mis 3 días de prueba gratis. Estoy listo para recuperar mi coherencia y empezar mi proceso de Ingeniería Humana");
           }
           botonWA.href = `https://api.whatsapp.com/send?phone=14155730323&text=${mensaje}`;
         }
