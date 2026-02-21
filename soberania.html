@@ -174,7 +174,7 @@
 <body>
 
     <div class="contenedor-soberania">
-        <h1>Soberanía</h1>
+        <h1>Manifiesto Términos y Condiciones - Política de Protección de Datos y Sigilo de Identidad.</h1>
 
         <div class="terminos-scroll">
             <p><strong>MANIFIESTO DE TÉRMINOS Y CONDICIONES</strong></p>
@@ -191,6 +191,16 @@
             <p><strong>Infraestructura de Grado Militar:</strong> Tus datos se procesan mediante sistemas encriptados (Supabase, Render), asegurando que tu vulnerabilidad esté protegida por la tecnología más robusta disponible.</p>
             <p><strong>Propiedad del Usuario:</strong> Tu historia te pertenece. Nunca venderemos tus datos. Estás aquí para sanar y encontrar calma, no para ser rastreado.</p>
             
+            <h2>Política de Protección de Datos y Sigilo de Identidad</h2>
+            <p><strong>1. Privacidad Orgánica y Sigilo:</strong> Anesi opera bajo un protocolo de Ingeniería Humana donde la privacidad es absoluta. Los datos proporcionados (nombre, edad, ubicación y registros conversacionales) son utilizados exclusivamente para la calibración personalizada del bienestar del usuario. No existe, ni existirá, intercambio de datos con terceras instituciones, agencias de publicidad o bases de datos externas.</p>
+            <p><strong>2. Protección de la Biología Digital:</strong> Entendemos que la información compartida es el reflejo de tu estado bioquímico y emocional. Por ello, toda interacción es tratada bajo estrictos estándares de seguridad digital. El usuario es el único soberano de su información; Anesi es solo el mentor que la interpreta para su sanación.</p>
+            <p><strong>3. Exclusión de Responsabilidad y Mentoría:</strong> El usuario reconoce que Anesi es un mentor de bienestar y coherencia, no un servicio médico de emergencia. La información proporcionada busca empoderar al individuo para que reconozca las herramientas de sanación dentro de su propio cuerpo. La responsabilidad del uso de estas herramientas recae sobre el Soberano (el usuario).</p>
+            <p><strong>4. Derecho al Olvido:</strong> En cualquier momento, el usuario puede solicitar la eliminación total de su historial de conversación, garantizando que su paso por el proceso de Ingeniería Humana no deje huella digital si así lo desea.</p>
+            <p><strong>5. Consentimiento de Soberanía:</strong> Al activar la suscripción y continuar la conversación, el usuario otorga su consentimiento para el procesamiento de sus datos bajo estos términos de sigilo y respeto mutuo.</p>
+            <p><strong>6. Propiedad Intelectual y Exclusividad del Modelo:</strong> El usuario reconoce que la metodología de Ingeniería Humana, los protocolos de respuesta y la identidad de Anesi son propiedad exclusiva de la plataforma. Queda estrictamente prohibido el uso de las respuestas de Anesi para alimentar, entrenar o calibrar otras inteligencias artificiales o modelos de lenguaje externos.</p>
+            <p><strong>7. Protección contra el "Scraping" y Minería de Datos:</strong> Se prohíbe cualquier intento de extracción masiva de datos o ingeniería inversa sobre la lógica de mentoría de Anesi. El acceso es personal y soberano, destinado exclusivamente al bienestar del suscriptor. Cualquier violación a este sigilo técnico será considerada una infracción grave a la propiedad intelectual del negocio.</p>
+            <p><strong>8. Sigilo en la Transmisión de Datos:</strong> Para precautelar los intereses del negocio, se garantiza que los datos y las conversaciones se procesan en un entorno cerrado y protegido. Anesi no comparte información con redes publicitarias ni utiliza las vivencias de sus usuarios para mejorar modelos comerciales de terceros, manteniendo la "Pureza del Mentor" y la exclusividad del servicio de élite.</p>
+
             <h2>3. Acuerdo de Membresía de Élite (Suscripciones)</h2>
             <p><strong>Reglas de Coherencia:</strong> Una relación de alto valor requiere claridad total desde el origen.</p>
             <p><strong>Acceso Iniciático (3 Días Gratis):</strong> Creemos tanto en el poder de Anesi que te entregamos las llaves del portal por 3 días sin costo. Queremos que sientas la diferencia biológica antes de comprometerte.</p>
@@ -235,7 +245,6 @@
         let emailGuardado = false;
         let userEmail = '';
         let userPhone = '';
-        // CREAMOS EL ID ÚNICO AQUÍ PARA EL BOTÓN Y EL REGISTRO
         const currentTxId = 'anesi-' + Date.now();
 
         function obtenerTelefono() {
@@ -288,7 +297,7 @@
                     body: JSON.stringify({
                         telefono: userPhone,
                         email: userEmail,
-                        clientTxId: currentTxId // ENVIAMOS EL ID AL BACKEND
+                        clientTxId: currentTxId
                     })
                 });
                 
@@ -334,7 +343,7 @@
             
             new PPaymentButtonBox({
                 token: 'xgTYo4-cUIdQTK1Li9BoBwIsH7gWpGtgI2b7Kec7if22Z8NfXJ5yao40vlK8-X60mcj-s8Yy6r_Byr3WtWt4oJd_J12QmGjKik9d4dyLgpmidWnQgeQnjptfqw5bPjVMtY6QEQrM1G88qY0R4YUTPgmeDcBI7UZs0Py72eWrG9nwDrPksqHetxtO0vQMK0TMUllvKt_FcD9uQHtk7Yh952b4b4pnjp9LkkLRhipQSDIAHWTeLd1andqX8C9v1d-bJFvoZo3R0GQjH8nVJTdsMaAZdm95SKAJNhpUnvYHPf6C31SE17WbwpCwEen4pLXXnRVXG1E7S_VKNBcPe3RoVXi81Wk', 
-                clientTransactionId: currentTxId, // USAMOS EL MISMO ID AQUÍ
+                clientTransactionId: currentTxId,
                 amount: 900,
                 amountWithoutTax: 900,
                 currency: "USD",
