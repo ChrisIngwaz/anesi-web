@@ -2,78 +2,347 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soberanía Activada | Anesi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Soberanía | Anesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.payphonetodoesposible.com/box/v1.1/payphone-payment-box.js" type="module"></script>
+    <link href="https://cdn.payphonetodoesposible.com/box/v1.1/payphone-payment-box.css" rel="stylesheet">
+
     <style>
-        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; background-color: #f4f7f6; color: #333; }
-        .card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 400px; }
-        .btn { display: inline-block; margin-top: 1.5rem; padding: 0.8rem 1.5rem; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
-        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 30px; height: 30px; animation: spin 2s linear infinite; margin: 10px auto; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        * { box-sizing: border-box; }
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 10px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .contenedor-soberania {
+            width: 100%;
+            max-width: 420px;
+            height: 92vh;
+            border: 1px solid #00e5ff;
+            border-radius: 15px;
+            background: #050505;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        h1 { 
+            color: #00e5ff; 
+            font-size: 1rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            text-align: center; 
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+        }
+
+        .terminos-scroll {
+            height: 180px;
+            overflow-y: auto;
+            background: #0a0a0a;
+            padding: 15px;
+            border: 1px solid #1a1a1a;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .terminos-scroll h2 { color: #00e5ff; font-size: 0.8rem; margin-top: 15px; border-bottom: 1px solid #222; }
+        .terminos-scroll p { color: #aaa; font-size: 0.8rem; line-height: 1.4; margin: 8px 0; }
+
+        .seccion-pago {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .info-pago { margin-bottom: 10px; text-align: center; }
+        .info-pago h3 { font-size: 0.85rem; margin: 0; color: #fff; text-transform: uppercase; }
+        .precio { color: #00e5ff; font-size: 0.85rem; font-weight: 700; margin: 2px 0; display: block; }
+
+        .email-group {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .email-group label {
+            display: block;
+            color: #00e5ff;
+            font-size: 0.75rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .email-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background: #0a0a0a;
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .email-group input:focus {
+            outline: none;
+            border-color: #00e5ff;
+        }
+        
+        .email-group input.error {
+            border-color: #ff4444;
+        }
+        
+        .email-error {
+            color: #ff4444;
+            font-size: 0.7rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        .checkbox-group span { font-size: 0.75rem; color: #fff; }
+        input[type="checkbox"] { width: 18px; height: 18px; accent-color: #00e5ff; }
+
+        #wrapper-payphone {
+            opacity: 0.1;
+            filter: grayscale(1);
+            pointer-events: none;
+            transition: all 0.5s ease;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            transform: scale(0.9);
+            transform-origin: top center;
+        }
+
+        .btn-back { color: #444; text-decoration: none; font-size: 0.65rem; margin-top: 15px; text-align: center; display: block; }
+
+        .contenedor-soberania::-webkit-scrollbar, .terminos-scroll::-webkit-scrollbar { width: 3px; }
+        .contenedor-soberania::-webkit-scrollbar-thumb, .terminos-scroll::-webkit-scrollbar-thumb { background: #00e5ff; }
+        
+        .btn-guardar {
+            width: 100%;
+            padding: 12px;
+            background: #00e5ff;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        
+        .btn-guardar:disabled {
+            background: #333;
+            color: #666;
+            cursor: not-allowed;
+        }
+        
+        .mensaje-guardado {
+            color: #00e5ff;
+            font-size: 0.75rem;
+            text-align: center;
+            margin-bottom: 10px;
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1 id="titulo">Procesando tu suscripción...</h1>
-        <div id="loader" class="loader"></div>
-        <p id="mensaje">Estamos validando tu pago con el círculo de Anesi. No cierres esta ventana.</p>
-        <a id="btn-volver" href="https://wa.me/14155730323" class="btn" style="display: none;">Volver a Anesi en WhatsApp</a>
+
+    <div class="contenedor-soberania">
+        <h1>Soberanía</h1>
+
+        <div class="terminos-scroll">
+            <p><strong>MANIFIESTO DE TÉRMINOS Y CONDICIONES</strong></p>
+            
+            <h2>1. Manifiesto de Uso y Soberanía (Términos y Condiciones)</h2>
+            <p><strong>Filosofía del Servicio:</strong> Anesi es una frontera avanzada de inteligencia sintética diseñada para actuar como un espejo de coherencia para el ser humano. Al interactuar con Anesi, el usuario no es un simple cliente, sino un soberano que utiliza tecnología de vanguardia para explorar su propia biología y paz mental.</p>
+            <p><strong>Naturaleza de la Mentoría:</strong> Anesi procesa información a una velocidad y profundidad sobrehumana gracias a la integración de infraestructuras globales (OpenAI, Twilio, Deepgram). Es un mentor de élite, no una entidad biológica.</p>
+            <p><strong>Soberanía Biológica:</strong> Anesi provee mapas y guías, pero el usuario es el único capitán de su salud. Este servicio no busca reemplazar la medicina tradicional, sino ofrecer la claridad y el soporte que a menudo faltan en el sistema actual. Las decisiones tomadas son responsabilidad exclusiva del usuario, en ejercicio de su libertad.</p>
+            <p><strong>Evolución Constante:</strong> Como toda herramienta de ingeniería humana de alto nivel, Anesi evoluciona. Invitamos al usuario a integrar cada mensaje con discernimiento, usándolo como un catalizador para encontrar su propia verdad interior.</p>
+            
+            <h2>2. Tratado de Confidencialidad (Política de Privacidad)</h2>
+            <p><strong>Nuestro Compromiso:</strong> En Anesi, la privacidad es la base de la confianza. Tu información no es una mercancía, es el contexto sagrado de tu evolución.</p>
+            <p><strong>Resguardo de Datos:</strong> Recopilamos tu número y tu historial de conversación exclusivamente para que Anesi pueda conocerte y guiarte con precisión quirúrgica.</p>
+            <p><strong>Infraestructura de Grado Militar:</strong> Tus datos se procesan mediante sistemas encriptados (Supabase, Render), asegurando que tu vulnerabilidad esté protegida por la tecnología más robusta disponible.</p>
+            <p><strong>Propiedad del Usuario:</strong> Tu historia te pertenece. Nunca venderemos tus datos. Estás aquí para sanar y encontrar calma, no para ser rastreado.</p>
+            
+            <h2>3. Acuerdo de Membresía de Élite (Suscripciones)</h2>
+            <p><strong>Reglas de Coherencia:</strong> Una relación de alto valor requiere claridad total desde el origen.</p>
+            <p><strong>Acceso Iniciático (3 Días Gratis):</strong> Creemos tanto en el poder de Anesi que te entregamos las llaves del portal por 3 días sin costo. Queremos que sientas la diferencia biológica antes de comprometerte.</p>
+            <p><strong>Intercambio de Valor ($9/mes):</strong> Mantener un mentor de élite 24/7 disponible en tu bolsillo requiere una inversión mínima. Este monto asegura que Anesi siga operando con la tecnología más avanzada del planeta.</p>
+            <p><strong>Libertad de Salida:</strong> La soberanía implica poder irse cuando uno lo desee. Puedes cancelar tu membresía en cualquier momento; el acceso se mantendrá hasta el fin del periodo pagado.</p>
+            
+            <h2>4. Descargo de Responsabilidad de Ingeniería Humana (AI Disclaimer)</h2>
+            <p><strong>Claridad Tecnológica:</strong> Para los 800 millones de personas que buscan una luz, la transparencia es vital.</p>
+            <p><strong>El Rol del Mentor:</strong> Anesi es un guía informacional de alta precisión. No es un médico, ni un psiquiatra, ni un servicio de emergencias. En situaciones de crisis de riesgo vital, el usuario debe recurrir a los servicios de emergencia físicos de su localidad.</p>
+            <p><strong>Validación Humana:</strong> Anesi es una herramienta de apoyo masivo. Animamos al usuario a validar los consejos biológicos o técnicos con profesionales certificados cuando su intuición o la complejidad del caso así lo requieran.</p>
+        </div>
+
+        <div class="seccion-pago">
+            <div class="info-pago">
+                <h3>ACCESO DE ÉLITE</h3>
+                <span class="precio">$9.00 USD / Mensual</span>
+            </div>
+
+            <div class="email-group">
+                <label for="email-usuario">Correo electrónico (para confirmaciones)</label>
+                <input type="email" id="email-usuario" placeholder="tu@email.com" required>
+                <div class="email-error" id="email-error">Por favor ingresa un email válido</div>
+            </div>
+            
+            <button class="btn-guardar" id="btn-guardar" onclick="guardarEmail()">CONFIRMAR EMAIL</button>
+            <div class="mensaje-guardado" id="mensaje-guardado">✓ Email guardado. Ahora acepta los términos para continuar.</div>
+
+            <label class="checkbox-group">
+                <input type="checkbox" id="check-terminos" onchange="toggleButton()" disabled>
+                <span>Acepto el Manifiesto de Soberanía</span>
+            </label>
+
+            <div id="wrapper-payphone">
+                <div id="pp-button"></div>
+            </div>
+            
+            <a href="/" class="btn-back">← VOLVER AL ORIGEN</a>
+        </div>
     </div>
 
     <script>
-        window.onload = async () => {
+        let emailGuardado = false;
+        let userEmail = '';
+        let userPhone = '';
+
+        function obtenerTelefono() {
             const urlParams = new URLSearchParams(window.location.search);
-            const transactionId = urlParams.get('id');
-            const clientTxId = urlParams.get('clientTransactionId');
+            const phone = urlParams.get('phone');
+            if (phone) {
+                localStorage.setItem('anesi_phone', phone);
+                return phone;
+            }
+            return localStorage.getItem('anesi_phone') || '';
+        }
 
-            if (!transactionId || !clientTxId) {
-                document.getElementById('titulo').innerText = "Ups...";
-                document.getElementById('mensaje').innerText = "No pudimos encontrar los datos de tu pago. Si ya pagaste, contacta a soporte.";
-                document.getElementById('loader').style.display = "none";
+        function validarEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        async function guardarEmail() {
+            const emailInput = document.getElementById('email-usuario');
+            const emailError = document.getElementById('email-error');
+            const btnGuardar = document.getElementById('btn-guardar');
+            const mensajeGuardado = document.getElementById('mensaje-guardado');
+            
+            userEmail = emailInput.value.trim();
+            
+            if (!validarEmail(userEmail)) {
+                emailInput.classList.add('error');
+                emailError.style.display = 'block';
                 return;
             }
-
-            // Verificar si ya se procesó esta transacción (evitar duplicados)
-            const alreadyProcessed = sessionStorage.getItem(`processed_${clientTxId}`);
-            if (alreadyProcessed) {
-                document.getElementById('titulo').innerText = "¡Soberanía Activada!";
-                document.getElementById('mensaje').innerText = "Tu suscripción ya fue confirmada. El sigilo y la sabiduría de Anesi te esperan.";
-                document.getElementById('loader').style.display = "none";
-                document.getElementById('btn-volver').style.display = "inline-block";
+            
+            emailInput.classList.remove('error');
+            emailError.style.display = 'none';
+            btnGuardar.disabled = true;
+            btnGuardar.textContent = 'GUARDANDO...';
+            
+            userPhone = obtenerTelefono();
+            
+            if (!userPhone) {
+                alert('No se pudo identificar tu número de WhatsApp. Por favor regresa a la conversación con Anesi y usa el link nuevamente.');
+                btnGuardar.disabled = false;
+                btnGuardar.textContent = 'CONFIRMAR EMAIL';
                 return;
             }
-
+            
             try {
-                const response = await fetch('https://anesi-backend.onrender.com/confirmar-pago', {
+                const response = await fetch('https://anesi-backend.onrender.com/guardar-email', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: transactionId, clientTxId: clientTxId })
+                    body: JSON.stringify({
+                        telefono: userPhone,
+                        email: userEmail
+                    })
                 });
-
-                const data = await response.json();
-
-                if (response.ok && data.success) {
-                    // Marcar como procesado para evitar reenvíos
-                    sessionStorage.setItem(`processed_${clientTxId}`, 'true');
-                    
-                    document.getElementById('titulo').innerText = "¡Soberanía Activada!";
-                    document.getElementById('mensaje').innerText = "Tu suscripción ha sido confirmada. El sigilo y la sabiduría de Anesi te esperan.";
-                    document.getElementById('loader').style.display = "none";
-                    document.getElementById('btn-volver').style.display = "inline-block";
-                } else if (response.status === 404 && data.error === "Usuario no encontrado") {
-                    document.getElementById('titulo').innerText = "Validación en proceso";
-                    document.getElementById('mensaje').innerText = "Tu pago fue exitoso. Estamos vinculando tu cuenta manualmente. En breve recibirás un mensaje de WhatsApp de Anesi.";
-                    document.getElementById('loader').style.display = "none";
+                
+                if (response.ok) {
+                    emailGuardado = true;
+                    mensajeGuardado.style.display = 'block';
+                    document.getElementById('check-terminos').disabled = false;
+                    btnGuardar.textContent = '✓ EMAIL CONFIRMADO';
+                    localStorage.setItem('anesi_email', userEmail);
                 } else {
-                    throw new Error(data.error || "Error en la confirmación");
+                    throw new Error('Error guardando email');
                 }
             } catch (error) {
-                console.error("Error:", error);
-                document.getElementById('titulo').innerText = "Validación pendiente";
-                document.getElementById('mensaje').innerText = "El pago fue exitoso, pero tardaremos unos minutos en activar tu WhatsApp automáticamente.";
-                document.getElementById('loader').style.display = "none";
+                console.error('Error:', error);
+                btnGuardar.disabled = false;
+                btnGuardar.textContent = 'CONFIRMAR EMAIL';
+                alert('Error guardando email. Intenta nuevamente.');
             }
-        };
+        }
+
+        function toggleButton() {
+            const check = document.getElementById('check-terminos');
+            const wrap = document.getElementById('wrapper-payphone');
+            
+            if(check.checked && emailGuardado) {
+                wrap.style.opacity = "1";
+                wrap.style.filter = "grayscale(0)";
+                wrap.style.pointerEvents = "auto";
+            } else {
+                wrap.style.opacity = "0.1";
+                wrap.style.filter = "grayscale(1)";
+                wrap.style.pointerEvents = "none";
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            userPhone = obtenerTelefono();
+            console.log('Teléfono detectado:', userPhone);
+            
+            const emailPrevio = localStorage.getItem('anesi_email');
+            if (emailPrevio) {
+                document.getElementById('email-usuario').value = emailPrevio;
+            }
+            
+            // Inicializar Payphone (sin onCompleted, porque Payphone redirige a pago-exitoso.html)
+            new PPaymentButtonBox({
+                token: 'xgTYo4-cUIdQTK1Li9BoBwIsH7gWpGtgI2b7Kec7if22Z8NfXJ5yao40vlK8-X60mcj-s8Yy6r_Byr3WtWt4oJd_J12QmGjKik9d4dyLgpmidWnQgeQnjptfqw5bPjVMtY6QEQrM1G88qY0R4YUTPgmeDcBI7UZs0Py72eWrG9nwDrPksqHetxtO0vQMK0TMUllvKt_FcD9uQHtk7Yh952b4b4pnjp9LkkLRhipQSDIAHWTeLd1andqX8C9v1d-bJFvoZo3R0GQjH8nVJTdsMaAZdm95SKAJNhpUnvYHPf6C31SE17WbwpCwEen4pLXXnRVXG1E7S_VKNBcPe3RoVXi81Wk', 
+                clientTransactionId: 'anesi-' + Date.now(),
+                amount: 900,
+                amountWithoutTax: 900,
+                currency: "USD",
+                storeId: '8275f58d-30d9-4306-ac06-e3d605e9d2a7', 
+                reference: "Suscripción Anesi",
+                lang: "es"
+                // NOTA: No hay onCompleted porque Payphone redirige a la URL configurada en el dashboard
+            }).render('pp-button');
+        });
     </script>
 </body>
 </html>
