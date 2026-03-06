@@ -68,7 +68,6 @@
             align-items: center;
         }
 
-        /* --- NUEVO SELECTOR DE PLANES --- */
         .selector-planes {
             display: flex;
             background: #111;
@@ -77,6 +76,7 @@
             margin-bottom: 15px;
             border: 1px solid #222;
             width: 100%;
+            position: relative;
         }
 
         .btn-plan {
@@ -87,15 +87,30 @@
             color: #666;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             cursor: pointer;
             border-radius: 50px;
             transition: 0.3s;
+            position: relative;
+            z-index: 1;
         }
 
         .btn-plan.activo {
             background: #00e5ff;
             color: #000;
+        }
+
+        .recomendado-tag {
+            position: absolute;
+            top: -12px;
+            right: 10px;
+            background: #ff00ff;
+            color: #fff;
+            font-size: 0.55rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .tarjeta-precio {
@@ -129,8 +144,6 @@
         .info-pago h3 { font-size: 0.8rem; margin: 0; color: #fff; text-transform: uppercase; }
         .precio { color: #00e5ff; font-size: 1.2rem; font-weight: 700; margin: 8px 0; display: block; }
         .ahorro-texto { font-size: 0.7rem; color: #aaa; margin-top: 2px; display: block; }
-
-        /* --- FIN SELECTOR --- */
 
         .email-group {
             width: 100%;
@@ -229,7 +242,6 @@
             display: none;
         }
 
-        /* Ocultar botones por defecto */
         #container-mensual, #container-anual { width: 100%; display: none; }
         #container-mensual.visible, #container-anual.visible { display: block; }
     </style>
@@ -293,22 +305,14 @@
 
             <div id="wrapper-payphone">
                 <div class="selector-planes">
-                    <button id="btn-sel-mensual" class="btn-plan activo" onclick="cambiarPlan('mensual')">PAGO MENSUAL</button>
-                    <button id="btn-sel-anual" class="btn-plan" onclick="cambiarPlan('anual')">PAGA ANUALMENTE</button>
+                    <button id="btn-sel-mensual" class="btn-plan" onclick="cambiarPlan('mensual')">PAGO MENSUAL</button>
+                    <button id="btn-sel-anual" class="btn-plan activo" onclick="cambiarPlan('anual')">
+                        PAGA ANUALMENTE
+                        <span class="recomendado-tag">Recomendado</span>
+                    </button>
                 </div>
 
-                <div id="container-mensual" class="visible">
-                    <div class="tarjeta-precio">
-                        <div class="info-pago">
-                            <h3>Soberanía Mensual</h3>
-                            <span class="precio">$9.00 USD</span>
-                            <span class="ahorro-texto">Ingeniería Humana 24/7</span>
-                        </div>
-                        <div id="pp-button-mensual"></div>
-                    </div>
-                </div>
-
-                <div id="container-anual">
+                <div id="container-anual" class="visible">
                     <div class="tarjeta-precio recomendada">
                         <div class="badge-ahorro">2 MESES GRATIS</div>
                         <div class="info-pago">
@@ -317,6 +321,17 @@
                             <span class="ahorro-texto">Ahorras $18 anuales</span>
                         </div>
                         <div id="pp-button-anual"></div>
+                    </div>
+                </div>
+
+                <div id="container-mensual">
+                    <div class="tarjeta-precio">
+                        <div class="info-pago">
+                            <h3>Soberanía Mensual</h3>
+                            <span class="precio">$9.00 USD</span>
+                            <span class="ahorro-texto">Ingeniería Humana 24/7</span>
+                        </div>
+                        <div id="pp-button-mensual"></div>
                     </div>
                 </div>
             </div>
@@ -418,7 +433,6 @@
             }
         }
 
-        // Lógica del Selector de Planes
         function cambiarPlan(plan) {
             const btnM = document.getElementById('btn-sel-mensual');
             const btnA = document.getElementById('btn-sel-anual');
