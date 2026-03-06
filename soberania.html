@@ -68,12 +68,34 @@
             align-items: center;
         }
 
-        .opciones-contenedor {
+        /* --- NUEVO SELECTOR DE PLANES --- */
+        .selector-planes {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
+            background: #111;
+            padding: 4px;
+            border-radius: 50px;
             margin-bottom: 15px;
+            border: 1px solid #222;
+            width: 100%;
+        }
+
+        .btn-plan {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: none;
+            color: #666;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .btn-plan.activo {
+            background: #00e5ff;
+            color: #000;
         }
 
         .tarjeta-precio {
@@ -82,7 +104,8 @@
             padding: 15px;
             text-align: center;
             background: #0a0a0a;
-            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 15px;
         }
 
         .tarjeta-precio.recomendada {
@@ -103,9 +126,11 @@
             border-radius: 5px;
         }
 
-        .info-pago h3 { font-size: 0.75rem; margin: 0; color: #fff; text-transform: uppercase; }
-        .precio { color: #00e5ff; font-size: 0.95rem; font-weight: 700; margin: 5px 0; display: block; }
-        .ahorro-texto { font-size: 0.65rem; color: #aaa; margin-top: 2px; display: block; }
+        .info-pago h3 { font-size: 0.8rem; margin: 0; color: #fff; text-transform: uppercase; }
+        .precio { color: #00e5ff; font-size: 1.2rem; font-weight: 700; margin: 8px 0; display: block; }
+        .ahorro-texto { font-size: 0.7rem; color: #aaa; margin-top: 2px; display: block; }
+
+        /* --- FIN SELECTOR --- */
 
         .email-group {
             width: 100%;
@@ -167,10 +192,7 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 20px;
             align-items: center;
-            transform: scale(0.9);
-            transform-origin: top center;
         }
 
         .btn-back { color: #444; text-decoration: none; font-size: 0.65rem; margin-top: 15px; text-align: center; display: block; }
@@ -206,6 +228,10 @@
             margin-bottom: 10px;
             display: none;
         }
+
+        /* Ocultar botones por defecto */
+        #container-mensual, #container-anual { width: 100%; display: none; }
+        #container-mensual.visible, #container-anual.visible { display: block; }
     </style>
 </head>
 <body>
@@ -266,22 +292,32 @@
             </label>
 
             <div id="wrapper-payphone">
-                <div class="tarjeta-precio">
-                    <div class="info-pago">
-                        <h3>Soberanía Mensual</h3>
-                        <span class="precio">$9.00 USD</span>
-                    </div>
-                    <div id="pp-button-mensual"></div>
+                <div class="selector-planes">
+                    <button id="btn-sel-mensual" class="btn-plan activo" onclick="cambiarPlan('mensual')">PAGO MENSUAL</button>
+                    <button id="btn-sel-anual" class="btn-plan" onclick="cambiarPlan('anual')">PAGA ANUALMENTE</button>
                 </div>
 
-                <div class="tarjeta-precio recomendada">
-                    <div class="badge-ahorro">2 MESES GRATIS</div>
-                    <div class="info-pago">
-                        <h3>Soberanía Anual</h3>
-                        <span class="precio">$90.00 USD</span>
-                        <span class="ahorro-texto">Ahorras $18 anuales</span>
+                <div id="container-mensual" class="visible">
+                    <div class="tarjeta-precio">
+                        <div class="info-pago">
+                            <h3>Soberanía Mensual</h3>
+                            <span class="precio">$9.00 USD</span>
+                            <span class="ahorro-texto">Ingeniería Humana 24/7</span>
+                        </div>
+                        <div id="pp-button-mensual"></div>
                     </div>
-                    <div id="pp-button-anual"></div>
+                </div>
+
+                <div id="container-anual">
+                    <div class="tarjeta-precio recomendada">
+                        <div class="badge-ahorro">2 MESES GRATIS</div>
+                        <div class="info-pago">
+                            <h3>Soberanía Anual</h3>
+                            <span class="precio">$90.00 USD</span>
+                            <span class="ahorro-texto">Ahorras $18 anuales</span>
+                        </div>
+                        <div id="pp-button-anual"></div>
+                    </div>
                 </div>
             </div>
             
@@ -340,14 +376,13 @@
             }
             
             try {
-                // Vinculamos inicialmente con el ID mensual por defecto
                 const response = await fetch('https://anesi-backend.onrender.com/guardar-email', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         telefono: userPhone,
                         email: userEmail,
-                        clientTxId: currentTxIdMensual // Vinculamos ambos IDs en el backend si es necesario o manejamos la tx activa
+                        clientTxId: currentTxIdMensual 
                     })
                 });
                 
@@ -383,9 +418,28 @@
             }
         }
 
+        // Lógica del Selector de Planes
+        function cambiarPlan(plan) {
+            const btnM = document.getElementById('btn-sel-mensual');
+            const btnA = document.getElementById('btn-sel-anual');
+            const contM = document.getElementById('container-mensual');
+            const contA = document.getElementById('container-anual');
+
+            if(plan === 'mensual') {
+                btnM.classList.add('activo');
+                btnA.classList.remove('activo');
+                contM.classList.add('visible');
+                contA.classList.remove('visible');
+            } else {
+                btnM.classList.remove('activo');
+                btnA.classList.add('activo');
+                contM.classList.remove('visible');
+                contA.classList.add('visible');
+            }
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             userPhone = obtenerTelefono();
-            
             const emailPrevio = localStorage.getItem('anesi_email');
             if (emailPrevio) {
                 document.getElementById('email-usuario').value = emailPrevio;
